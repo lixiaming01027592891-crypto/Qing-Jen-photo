@@ -316,9 +316,13 @@ const blogPreview = [
   const exposure = document.getElementById('exposure-burst');
   
   if (ritual && !sessionStorage.getItem('ritualShown')) {
-    // Seamless 4-phase chain: 0s→0.1s→0.28s→0.73s→0.93s
-    setTimeout(() => { shutter?.classList.add('animate'); }, 100);
-    setTimeout(() => { ritual.classList.add('ritual-complete'); sessionStorage.setItem('ritualShown', 'true'); setTimeout(() => ritual.remove(), 250); }, 930);
+    // Phase A: 0-0.3s darkness → 0.3s shutter → 0.5s exposure → 1.3s fade-in → 2.4s done
+    setTimeout(() => { shutter?.classList.add('animate'); }, 300);
+    setTimeout(() => {
+      ritual.classList.add('ritual-complete');
+      sessionStorage.setItem('ritualShown', 'true');
+      setTimeout(() => ritual.remove(), 800);
+    }, 1600);
   } else if (ritual) { ritual.style.display = 'none'; }
 
   // Sticky photo sections with IntersectionObserver
