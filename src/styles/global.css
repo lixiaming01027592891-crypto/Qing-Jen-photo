@@ -67,7 +67,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  transition: opacity 0.53s var(--ease-expo-out);
+  transition: opacity 0.38s var(--ease-expo-out);
 }
 
 .loading-ritual.ritual-complete {
@@ -97,7 +97,7 @@ body {
 .shutter-icon::after {
   border: 2px solid var(--champagne-gold);
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  animation: shutterRotate 0.2s ease-out forwards;
+  animation: shutterRotate 0.15s ease-out forwards;
 }
 
 @keyframes shutterRotate {
@@ -111,7 +111,7 @@ body {
   background: radial-gradient(circle at center, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 20%, transparent 60%);
   transform: scale(0);
   opacity: 0;
-  animation: exposureExpand 1.0s var(--ease-dramatic) 0.33s forwards;
+  animation: exposureExpand 0.72s var(--ease-dramatic) 0.23s forwards;
 }
 
 @keyframes exposureExpand {
