@@ -316,26 +316,10 @@ const blogPreview = [
   const exposure = document.getElementById('exposure-burst');
   
   if (ritual && !sessionStorage.getItem('ritualShown')) {
-    // Phase 1: Darkness (0-0.7s)
-    // Phase 2: Shutter click (0.7-0.95s)
-    setTimeout(() => {
-      shutter?.classList.add('animate');
-    }, 550);
-
-    // Phase 3: Exposure burst (0.93-1.65s) - CSS animation handles this
-
-    // Phase 4: Photo emergence (1.65-2.03s)
-    setTimeout(() => {
-      ritual.classList.add('ritual-complete');
-      sessionStorage.setItem('ritualShown', 'true');
-
-      setTimeout(() => {
-        ritual.style.display = 'none';
-      }, 380);
-    }, 1400);
-  } else if (ritual) {
-    ritual.style.display = 'none';
-  }
+    // Seamless 4-phase chain: 0s→0.1s→0.28s→0.73s→0.93s
+    setTimeout(() => { shutter?.classList.add('animate'); }, 100);
+    setTimeout(() => { ritual.classList.add('ritual-complete'); sessionStorage.setItem('ritualShown', 'true'); setTimeout(() => ritual.remove(), 250); }, 930);
+  } else if (ritual) { ritual.style.display = 'none'; }
 
   // Sticky photo sections with IntersectionObserver
   const photoSections = document.querySelectorAll('.photo-section');
