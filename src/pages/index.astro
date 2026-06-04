@@ -316,23 +316,27 @@ const blogPreview = [
   const exposure = document.getElementById('exposure-burst');
   
   if (ritual && !sessionStorage.getItem('ritualShown')) {
-    // Phase 1: Darkness (0-1.5s)
-    // Phase 2: Shutter click (1.5-2s)
+    // Phase 1: Darkness (0-1.0s)
+    // Phase 2: Shutter click + sound (1.0-1.33s)
+    const shutterAudio = new Audio('/shutter-sound.mp3');
+    shutterAudio.volume = 0.6;
+
     setTimeout(() => {
       shutter?.classList.add('animate');
-    }, 1500);
-    
-    // Phase 3: Exposure burst (2-3.5s) - CSS animation handles this
-    
-    // Phase 4: Photo emergence (3.5-4.5s)
+      shutterAudio.play().catch(() => {}); // autoplay may be blocked
+    }, 1000);
+
+    // Phase 3: Exposure burst (1.33-2.33s) - CSS animation handles this
+
+    // Phase 4: Photo emergence (2.33-3.0s)
     setTimeout(() => {
       ritual.classList.add('ritual-complete');
       sessionStorage.setItem('ritualShown', 'true');
-      
+
       setTimeout(() => {
         ritual.style.display = 'none';
-      }, 800);
-    }, 4000);
+      }, 530);
+    }, 2500);
   } else if (ritual) {
     ritual.style.display = 'none';
   }
