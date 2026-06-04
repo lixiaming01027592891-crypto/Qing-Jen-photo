@@ -320,7 +320,7 @@ const blogPreview = [
     // Phase 2: Shutter click (0.7-0.95s)
     setTimeout(() => {
       shutter?.classList.add('animate');
-    }, 700);
+    }, 550);
 
     // Phase 3: Exposure burst (0.93-1.65s) - CSS animation handles this
 
@@ -332,7 +332,7 @@ const blogPreview = [
       setTimeout(() => {
         ritual.style.display = 'none';
       }, 380);
-    }, 1800);
+    }, 1400);
   } else if (ritual) {
     ritual.style.display = 'none';
   }

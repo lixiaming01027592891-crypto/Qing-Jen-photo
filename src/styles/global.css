@@ -67,7 +67,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  transition: opacity 0.38s var(--ease-expo-out);
+  transition: opacity 0.30s var(--ease-expo-out);
 }
 
 .loading-ritual.ritual-complete {
@@ -111,7 +111,7 @@ body {
   background: radial-gradient(circle at center, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 20%, transparent 60%);
   transform: scale(0);
   opacity: 0;
-  animation: exposureExpand 0.72s var(--ease-dramatic) 0.23s forwards;
+  animation: exposureExpand 0.57s var(--ease-dramatic) 0.18s forwards;
 }
 
 @keyframes exposureExpand {
