@@ -75,50 +75,128 @@ body {
   pointer-events: none;
 }
 
-.shutter-icon {
-  width: 60px;
-  height: 60px;
-  position: relative;
-}
+/* === Postcard Loading Ritual === */
 
-.shutter-icon::before,
-.shutter-icon::after {
-  content: '';
-  position: absolute;
-  border-radius: 50%;
-  inset: 0;
-}
-
-.shutter-icon::before {
-  border: 2px solid var(--text-primary);
-  opacity: 0.8;
-}
-
-.shutter-icon::after {
-  border: 2px solid var(--champagne-gold);
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  animation: shutterRotate 0.2s ease-out 0.3s forwards;
-}
-
-@keyframes shutterRotate {
-  from { transform: rotate(0deg) scale(0.8); opacity: 0; }
-  to { transform: rotate(60deg) scale(1); opacity: 1; }
-}
-
-.exposure-burst {
+/* Phase 2: Camera flash */
+.camera-flash {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.7) 22%, transparent 60%);
-  transform: scale(0);
+  background: #fff;
   opacity: 0;
-  animation: exposureExpand 0.8s var(--ease-dramatic) 0.5s forwards;
+  z-index: 10;
+  pointer-events: none;
 }
 
-@keyframes exposureExpand {
-  0% { transform: scale(0); opacity: 0; }
-  30% { transform: scale(0.3); opacity: 0.8; }
-  60% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(2); opacity: 0; }
+.camera-flash.flash-active {
+  animation: flashPop 0.4s ease-out forwards;
+}
+
+@keyframes flashPop {
+  0%   { opacity: 0; }
+  20%  { opacity: 1; }
+  60%  { opacity: 0.85; }
+  100% { opacity: 0; }
+}
+
+/* Phase 3-4: Postcard */
+.postcard {
+  position: relative;
+  width: 360px;
+  height: 480px;
+  max-width: 80vw;
+  max-height: 65vh;
+  background: #0A0A0A;
+  border: 2px solid #D4A574;
+  box-shadow: 0 0 40px rgba(212,165,116,0.3), 0 20px 60px rgba(0,0,0,0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  opacity: 0;
+  transform: translateY(-120px) rotate(-8deg);
+  pointer-events: none;
+}
+
+.postcard.postcard-active {
+  animation: postcardDrop 1.15s var(--ease-expo-out) forwards;
+}
+
+@keyframes postcardDrop {
+  0%   { opacity: 0; transform: translateY(-120px) rotate(-8deg); }
+  100% { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+
+/* Phase 4: Zoom into postcard */
+.postcard.postcard-zoom {
+  animation: postcardDrop 1.15s var(--ease-expo-out) forwards,
+             postcardZoomIn 0.8s var(--ease-dramatic) forwards;
+}
+
+@keyframes postcardZoomIn {
+  0%   { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; filter: blur(0px); }
+  100% { transform: translateY(0) rotate(0deg) scale(2.5); opacity: 0; filter: blur(4px); }
+}
+
+/* Postcard border glow */
+.postcard-border {
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(212,165,116,0.4);
+  pointer-events: none;
+}
+
+/* Characters */
+.postcard-char {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 80px;
+  font-weight: 600;
+  color: #D4A574;
+  line-height: 1.1;
+  opacity: 0;
+  text-shadow: 0 0 30px rgba(212,165,116,0.4);
+}
+
+.char-qing {
+  transform: translateY(-20px);
+}
+
+.char-jin {
+  transform: translateY(20px);
+}
+
+/* Character stagger reveal */
+.postcard.postcard-active .char-qing {
+  animation: charReveal 0.6s var(--ease-expo-out) 0.95s forwards;
+}
+
+.postcard.postcard-active .char-jin {
+  animation: charReveal 0.6s var(--ease-expo-out) 1.15s forwards;
+}
+
+@keyframes charReveal {
+  0%   { opacity: 0; transform: translateY(0) scale(0.8); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Subtitle */
+.postcard-sub {
+  position: absolute;
+  bottom: 24px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: rgba(212,165,116,0.6);
+  opacity: 0;
+}
+
+.postcard.postcard-active .postcard-sub {
+  animation: charReveal 0.5s var(--ease-expo-out) 1.4s forwards;
+}
+
+@media (max-width: 768px) {
+  .postcard { width: 260px; height: 340px; }
+  .postcard-char { font-size: 56px; }
 }
 
 /* Photo Sections - 100vh Album Scroll */

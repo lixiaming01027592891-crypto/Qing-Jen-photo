@@ -96,10 +96,17 @@ const blogPreview = [
 ---
 
 <Layout>
-  <!-- Loading Ritual -->
+  <!-- Loading Ritual - "Please Come In" Postcard -->
   <div id="loading-ritual" class="loading-ritual">
-    <div class="shutter-icon" id="shutter-icon"></div>
-    <div class="exposure-burst" id="exposure-burst"></div>
+    <!-- Phase 2: Camera flash -->
+    <div class="camera-flash" id="camera-flash"></div>
+    <!-- Phase 3-4: Postcard -->
+    <div class="postcard" id="postcard">
+      <div class="postcard-border"></div>
+      <div class="postcard-char char-qing" id="char-qing">請</div>
+      <div class="postcard-char char-jin" id="char-jin">進</div>
+      <div class="postcard-sub">攝影棚 · Photography Studio</div>
+    </div>
   </div>
 
   <Navbar />
@@ -316,13 +323,18 @@ const blogPreview = [
   const exposure = document.getElementById('exposure-burst');
   
   if (ritual && !sessionStorage.getItem('ritualShown')) {
-    // Phase A: 0-0.3s darkness → 0.3s shutter → 0.5s exposure → 1.3s fade-in → 2.4s done
-    setTimeout(() => { shutter?.classList.add('animate'); }, 300);
+    // Phase 2: Flash at 0.5s
+    setTimeout(() => { document.getElementById('camera-flash')?.classList.add('flash-active'); }, 500);
+    // Phase 3: Postcard drops
+    setTimeout(() => { document.getElementById('postcard')?.classList.add('postcard-active'); }, 650);
+    // Phase 4: Camera zoom-in at 1.8s
+    setTimeout(() => { document.getElementById('postcard')?.classList.add('postcard-zoom'); }, 1800);
+    // Phase 5: Fade out & cleanup
     setTimeout(() => {
       ritual.classList.add('ritual-complete');
       sessionStorage.setItem('ritualShown', 'true');
-      setTimeout(() => ritual.remove(), 800);
-    }, 1600);
+      setTimeout(() => ritual.remove(), 500);
+    }, 2500);
   } else if (ritual) { ritual.style.display = 'none'; }
 
   // Sticky photo sections with IntersectionObserver
