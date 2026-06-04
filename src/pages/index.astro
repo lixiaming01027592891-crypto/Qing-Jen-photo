@@ -1,0 +1,356 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const photoSections = [
+  {
+    image: '/hero-portrait.jpg',
+    title: '我們拍的不是照片，是記憶',
+    subtitle: '每一次快門，都是一段故事的開始',
+    category: '個人寫真',
+    index: '01'
+  },
+  {
+    image: '/gallery-maternity.jpg',
+    title: '孕育生命的光輝',
+    subtitle: '記錄母親最美的時刻',
+    category: '孕婦寫真',
+    index: '02'
+  },
+  {
+    image: '/gallery-couple.jpg',
+    title: '愛，在光影中流動',
+    subtitle: '為每一對戀人寫下專屬篇章',
+    category: '情侶寫真',
+    index: '03'
+  },
+  {
+    image: '/gallery-family.jpg',
+    title: '家的溫度',
+    subtitle: '定格最真摯的家人時光',
+    category: '全家福',
+    index: '04'
+  },
+  {
+    image: '/gallery-pet.jpg',
+    title: '毛孩的純真時刻',
+    subtitle: '捕捉寵物最自然的表情',
+    category: '寵物寫真',
+    index: '05'
+  }
+];
+
+const categories = [
+  { name: '個人寫真', nameEn: 'Portrait', image: '/gallery-portrait.jpg', href: '/works/#portrait' },
+  { name: '孕婦寫真', nameEn: 'Maternity', image: '/gallery-maternity.jpg', href: '/works/#maternity' },
+  { name: '閨蜜寫真', nameEn: 'Friendship', image: '/hero-portrait.jpg', href: '/works/#friends' },
+  { name: '情侶寫真', nameEn: 'Couple', image: '/gallery-couple.jpg', href: '/works/#couple' },
+  { name: '全家福', nameEn: 'Family', image: '/gallery-family.jpg', href: '/works/#family' },
+];
+
+const testimonials = [
+  {
+    name: 'Tracy Lu',
+    text: '攝影師跟造型師都超棒♥️♥️♥️ CP值非常高的攝影工作室。前端諮詢的時候攝影師很有耐心的跟我討論造型跟禮服怎麼搭配，場景佈置也很用心整個炸美！',
+    service: '個人寫真'
+  },
+  {
+    name: '靜宜沈',
+    text: '拍攝時是一位專業又親切的女攝影師，推薦所有對藝術或寫真有興趣的人來體驗！',
+    service: '藝術寫真'
+  },
+  {
+    name: 'q Yan',
+    text: '攝影棚不大卻能變化出各種可能，超棒的💯 好期待成品！很愉快的寫真體驗，環境乾淨舒適，離火車站很近很方便，大推！',
+    service: '閨蜜寫真'
+  }
+];
+
+const blogPreview = [
+  {
+    title: '如何在室內拍出自然光感？攝影師的打光秘訣',
+    excerpt: '自然光是最美的光源，但在室內攝影時，如何模擬自然光的效果？讓我們分享專業攝影師的打光技巧...',
+    image: '/blog-lighting-guide.jpg',
+    date: '2024-12-15',
+    category: '攝影技巧',
+    slug: 'indoor-lighting-tips'
+  },
+  {
+    title: '拍照前必看：5個讓你更上鏡的姿勢技巧',
+    excerpt: '面對鏡頭總是不知所措？這些簡單的姿勢訣竅能讓你在照片中展現最自然、最有魅力的一面...',
+    image: '/blog-posing-tips.jpg',
+    date: '2024-11-28',
+    category: '拍攝指南',
+    slug: 'posing-tips-for-photos'
+  },
+  {
+    title: '相機設定入門：光圈、快門、ISO怎麼調？',
+    excerpt: '想學攝影但不知道從哪開始？了解曝光三角——光圈、快門速度與ISO，是拍出好照片的第一步...',
+    image: '/blog-camera-settings.jpg',
+    date: '2024-11-10',
+    category: '攝影教學',
+    slug: 'camera-settings-beginner'
+  }
+];
+---
+
+<Layout>
+  <!-- Loading Ritual -->
+  <div id="loading-ritual" class="loading-ritual">
+    <div class="shutter-icon" id="shutter-icon"></div>
+    <div class="exposure-burst" id="exposure-burst"></div>
+  </div>
+
+  <Navbar />
+  
+  <main>
+    <!-- Photo Album Sections - 100vh each -->
+    <section id="photo-album">
+      {photoSections.map((photo, i) => (
+        <div class="photo-section" data-index={i}>
+          <img 
+            src={photo.image} 
+            alt={photo.title}
+            loading={i === 0 ? 'eager' : 'lazy'}
+            class={i === 0 ? '' : 'img-blur-load'}
+          />
+          <div class="photo-overlay"></div>
+          <div class="photo-content">
+            <div class="reveal reveal-delay-1">
+              <span class="category-label">{photo.category}</span>
+            </div>
+            <h2 class="font-serif-tc text-4xl md:text-5xl lg:text-6xl text-[#F5F0EB] font-light leading-tight mt-4 mb-3 reveal reveal-delay-2" style="letter-spacing: 0.02em;">
+              {photo.title}
+            </h2>
+            <p class="font-cormorant text-lg md:text-xl text-[#A09A94] font-light italic reveal reveal-delay-3">
+              {photo.subtitle}
+            </p>
+            <div class="mt-6 flex items-center gap-4 reveal reveal-delay-4">
+              <a href="/works/" class="btn-primary">瀏覽作品</a>
+              <a href="/contact/" class="btn-secondary">立即預約</a>
+            </div>
+            <div class="absolute bottom-8 right-0 md:right-16 text-right reveal reveal-delay-5">
+              <span class="font-playfair text-6xl md:text-8xl text-[rgba(245,240,235,0.04)] font-light">{photo.index}</span>
+            </div>
+          </div>
+          {i === 0 && <div class="scroll-hint"></div>}
+        </div>
+      ))}
+    </section>
+
+    <!-- Category Entrances -->
+    <section class="py-[100px] md:py-[150px] bg-[#0A0A0A] relative">
+      <div class="absolute left-6 lg:left-16 top-1/2 -translate-y-1/2 hidden lg:block">
+        <span class="section-label">Categories</span>
+      </div>
+      
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-16">
+        <div class="text-center mb-16 reveal">
+          <span class="category-label">Explore</span>
+          <h2 class="font-serif-tc text-3xl md:text-4xl text-[#F5F0EB] mt-3 mb-4">探索我們的攝影服務</h2>
+          <p class="font-cormorant text-lg text-[#A09A94] italic">點擊進入各類型的作品畫廊</p>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          {categories.map((cat, i) => (
+            <a href={cat.href} class="group relative aspect-[3/4] overflow-hidden reveal" style={`transition-delay: ${i * 0.08}s`}>
+              <img 
+                src={cat.image} 
+                alt={cat.name}
+                class="w-full h-full object-cover grayscale-hover transition-transform duration-800 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[rgba(10,10,10,0.85)] via-[rgba(10,10,10,0.3)] to-transparent"></div>
+              <div class="absolute inset-0 flex flex-col items-center justify-end pb-8">
+                <span class="font-playfair text-xs text-[#D4A574] tracking-[0.15em] uppercase mb-2 opacity-80 group-hover:opacity-100 transition-opacity">{cat.nameEn}</span>
+                <span class="font-serif-tc text-lg text-[#F5F0EB] group-hover:text-[#D4A574] transition-colors">{cat.name}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- About Teaser -->
+    <section class="py-[100px] md:py-[150px] bg-[#141414] relative overflow-hidden">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-16">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div class="relative reveal">
+            <div class="aspect-[4/5] overflow-hidden">
+              <img 
+                src="/photographer-profile.jpg" 
+                alt="請進攝影棚攝影師"
+                class="w-full h-full object-cover img-blur-load"
+              />
+            </div>
+            <div class="absolute -bottom-6 -right-6 w-32 h-32 border border-[#D4A574] opacity-30 hidden lg:block"></div>
+            <div class="absolute -top-6 -left-6 w-20 h-20 border border-[#D4A574] opacity-20 hidden lg:block"></div>
+          </div>
+          
+          <div class="lg:pl-8">
+            <span class="category-label reveal">About Us</span>
+            <h2 class="font-serif-tc text-3xl md:text-4xl lg:text-5xl text-[#F5F0EB] mt-4 mb-6 leading-tight gold-line reveal">
+              走進請進攝影棚<br />走進光的世界
+            </h2>
+            <div class="space-y-4 mb-8">
+              <p class="font-sans-tc text-base text-[#A09A94] leading-relaxed reveal reveal-delay-1">
+                請進攝影棚位於基隆市仁愛區，靠近基隆火車站，交通便利。我們是基隆唯一提供攝影棚出租服務的專業攝影工作室，擁有多樣風格的場景與自然光照射的拍攝空間。
+              </p>
+              <p class="font-sans-tc text-base text-[#A09A94] leading-relaxed reveal reveal-delay-2">
+                我們相信，每一張照片背後都有一個故事。不是「拍照」，是「創造記憶」。從個人寫真到全家福，從孕婦寫真到寵物攝影，我們用專業的鏡頭與溫度，為每一位客人留下最珍貴的畫面。
+              </p>
+              <p class="font-caveat text-2xl text-[#D4A574] mt-4 reveal reveal-delay-3">
+                "我們拍的不是照片，是記憶。"
+              </p>
+            </div>
+            <div class="reveal reveal-delay-4">
+              <a href="/about/" class="btn-primary">了解更多</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-[100px] md:py-[150px] bg-[#0A0A0A] relative">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-16">
+        <div class="text-center mb-16 reveal">
+          <span class="category-label">Testimonials</span>
+          <h2 class="font-serif-tc text-3xl md:text-4xl text-[#F5F0EB] mt-3 mb-4">客人怎麼說</h2>
+          <p class="font-cormorant text-lg text-[#A09A94] italic">每一份信任，都是我們前進的動力</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {testimonials.map((t, i) => (
+            <div class="testimonial-card reveal" style={`transition-delay: ${i * 0.12}s`}>
+              <p class="font-sans-tc text-sm text-[#A09A94] leading-relaxed mb-6">"{t.text}"</p>
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="font-sans-tc text-sm text-[#F5F0EB]">{t.name}</p>
+                  <p class="font-sans-tc text-xs text-[#6B6560] mt-1">{t.service}</p>
+                </div>
+                <div class="flex gap-1">
+                  {[1,2,3,4,5].map(() => (
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#D4A574" stroke="none">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Preview -->
+    <section class="py-[100px] md:py-[150px] bg-[#141414] relative">
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-16">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
+          <div class="reveal">
+            <span class="category-label">Journal</span>
+            <h2 class="font-serif-tc text-3xl md:text-4xl text-[#F5F0EB] mt-3 mb-4">攝影日誌</h2>
+            <p class="font-cormorant text-lg text-[#A09A94] italic">攝影技巧、拍攝心得與幕後故事</p>
+          </div>
+          <a href="/blog/" class="btn-secondary mt-6 md:mt-0 reveal">查看全部</a>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {blogPreview.map((post, i) => (
+            <a href={`/blog/${post.slug}/`} class="blog-card group reveal" style={`transition-delay: ${i * 0.1}s`}>
+              <div class="aspect-[3/2] overflow-hidden">
+                <img 
+                  src={post.image} 
+                  alt={post.title}
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 img-blur-load"
+                />
+              </div>
+              <div class="p-6">
+                <div class="flex items-center gap-3 mb-3">
+                  <span class="font-sans-tc text-xs text-[#D4A574]">{post.category}</span>
+                  <span class="font-sans-tc text-xs text-[#6B6560]">{post.date}</span>
+                </div>
+                <h3 class="font-serif-tc text-lg text-[#F5F0EB] leading-snug mb-2 group-hover:text-[#D4A574] transition-colors line-clamp-2">
+                  {post.title}
+                </h3>
+                <p class="font-sans-tc text-sm text-[#A09A94] line-clamp-2 leading-relaxed">
+                  {post.excerpt}
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-[100px] md:py-[150px] bg-[#0A0A0A] relative overflow-hidden">
+      <div class="absolute inset-0 opacity-5">
+        <img src="/studio-interior.jpg" alt="" class="w-full h-full object-cover" />
+      </div>
+      <div class="max-w-[1440px] mx-auto px-6 lg:px-16 relative z-10 text-center">
+        <div class="reveal">
+          <span class="font-playfair text-xs tracking-[0.2em] text-[#D4A574] uppercase">Begin Your Journey</span>
+          <h2 class="font-serif-tc text-3xl md:text-5xl lg:text-6xl text-[#F5F0EB] font-light mt-4 mb-6 leading-tight">
+            準備好創造<br />屬於你的記憶了嗎？
+          </h2>
+          <p class="font-cormorant text-lg md:text-xl text-[#A09A94] italic max-w-xl mx-auto mb-10">
+            每一個瞬間都值得被珍藏。讓我們一起，用鏡頭記錄下最美好的你。
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="/contact/" class="btn-primary">立即預約</a>
+            <a href="/services/" class="btn-secondary">了解服務</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  // Loading Ritual Animation
+  const ritual = document.getElementById('loading-ritual');
+  const shutter = document.getElementById('shutter-icon');
+  const exposure = document.getElementById('exposure-burst');
+  
+  if (ritual && !sessionStorage.getItem('ritualShown')) {
+    // Phase 1: Darkness (0-1.5s)
+    // Phase 2: Shutter click (1.5-2s)
+    setTimeout(() => {
+      shutter?.classList.add('animate');
+    }, 1500);
+    
+    // Phase 3: Exposure burst (2-3.5s) - CSS animation handles this
+    
+    // Phase 4: Photo emergence (3.5-4.5s)
+    setTimeout(() => {
+      ritual.classList.add('ritual-complete');
+      sessionStorage.setItem('ritualShown', 'true');
+      
+      setTimeout(() => {
+        ritual.style.display = 'none';
+      }, 800);
+    }, 4000);
+  } else if (ritual) {
+    ritual.style.display = 'none';
+  }
+
+  // Sticky photo sections with IntersectionObserver
+  const photoSections = document.querySelectorAll('.photo-section');
+  
+  const photoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, {
+    threshold: 0.5
+  });
+
+  photoSections.forEach(section => {
+    photoObserver.observe(section);
+  });
+</script>

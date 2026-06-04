@@ -1,0 +1,107 @@
+---
+const navLinks = [
+  { href: '/works/', label: '作品', en: 'Works' },
+  { href: '/about/', label: '關於', en: 'About' },
+  { href: '/services/', label: '服務', en: 'Services' },
+  { href: '/blog/', label: '日誌', en: 'Journal' },
+  { href: '/contact/', label: '聯絡', en: 'Contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 h-16 flex items-center transition-all duration-500" style="background: rgba(10,10,10,0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+  <div class="w-full max-w-[1440px] mx-auto px-6 lg:px-16 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="font-serif-tc text-base text-[#F5F0EB] tracking-wide hover:text-[#D4A574] transition-colors duration-400">
+      請進攝影棚
+    </a>
+    
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex items-center gap-10">
+      {navLinks.map(link => (
+        <a 
+          href={link.href}
+          class:list={[
+            'relative font-sans-tc text-sm tracking-[0.05em] transition-colors duration-400 link-animated',
+            currentPath === link.href || currentPath.startsWith(link.href.slice(0, -1)) 
+              ? 'text-[#D4A574]' 
+              : 'text-[#A09A94] hover:text-[#D4A574]'
+          ]}
+        >
+          {link.label}
+          {(currentPath === link.href || currentPath.startsWith(link.href.slice(0, -1))) && (
+            <span class="absolute -bottom-1.5 left-0 w-full h-px bg-[#D4A574]" />
+          )}
+        </a>
+      ))}
+    </div>
+    
+    <!-- Mobile Hamburger -->
+    <button 
+      id="mobile-menu-btn" 
+      class="md:hidden flex flex-col gap-1.5 p-2"
+      aria-label="開啟選單"
+    >
+      <span class="w-5 h-[1.5px] bg-[#F5F0EB] transition-all duration-300" id="hamburger-line-1"></span>
+      <span class="w-5 h-[1.5px] bg-[#F5F0EB] transition-all duration-300" id="hamburger-line-2"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-[#0A0A0A] flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-opacity duration-500 md:hidden">
+  {navLinks.map((link, i) => (
+    <a 
+      href={link.href}
+      class="mobile-nav-link font-serif-tc text-2xl text-[#A09A94] hover:text-[#D4A574] transition-all duration-400 opacity-0 translate-y-4"
+      style={`transition-delay: ${i * 0.1}s`}
+    >
+      {link.label}
+      <span class="block font-playfair text-xs tracking-[0.15em] mt-1 text-[#6B6560]">{link.en}</span>
+    </a>
+  ))}
+</div>
+
+<script>
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+  const line1 = document.getElementById('hamburger-line-1');
+  const line2 = document.getElementById('hamburger-line-2');
+  let menuOpen = false;
+
+  mobileMenuBtn?.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    
+    if (menuOpen) {
+      mobileMenu?.classList.remove('opacity-0', 'pointer-events-none');
+      mobileMenu?.classList.add('opacity-100', 'pointer-events-auto');
+      mobileNavLinks.forEach(link => {
+        link.classList.remove('opacity-0', 'translate-y-4');
+        link.classList.add('opacity-100', 'translate-y-0');
+      });
+      line1?.classList.add('rotate-45', 'translate-y-[3px]');
+      line2?.classList.add('-rotate-45', '-translate-y-[3px]');
+    } else {
+      mobileMenu?.classList.add('opacity-0', 'pointer-events-none');
+      mobileMenu?.classList.remove('opacity-100', 'pointer-events-auto');
+      mobileNavLinks.forEach(link => {
+        link.classList.add('opacity-0', 'translate-y-4');
+        link.classList.remove('opacity-100', 'translate-y-0');
+      });
+      line1?.classList.remove('rotate-45', 'translate-y-[3px]');
+      line2?.classList.remove('-rotate-45', '-translate-y-[3px]');
+    }
+  });
+
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      menuOpen = false;
+      mobileMenu?.classList.add('opacity-0', 'pointer-events-none');
+      mobileMenu?.classList.remove('opacity-100', 'pointer-events-auto');
+      line1?.classList.remove('rotate-45', 'translate-y-[3px]');
+      line2?.classList.remove('-rotate-45', '-translate-y-[3px]');
+    });
+  });
+</script>

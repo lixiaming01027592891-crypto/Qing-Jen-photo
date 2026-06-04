@@ -1,0 +1,110 @@
+---
+const serviceLinks = [
+  { label: '個人寫真', href: '/services/#portrait' },
+  { label: '孕婦寫真', href: '/services/#maternity' },
+  { label: '閨蜜寫真', href: '/services/#friends' },
+  { label: '情侶寫真', href: '/services/#couple' },
+  { label: '全家福', href: '/services/#family' },
+  { label: '寵物寫真', href: '/services/#pet' },
+];
+
+const quickLinks = [
+  { label: '作品', href: '/works/' },
+  { label: '關於', href: '/about/' },
+  { label: '服務', href: '/services/' },
+  { label: '日誌', href: '/blog/' },
+  { label: '聯絡', href: '/contact/' },
+];
+---
+
+<footer class="w-full bg-[#0A0A0A] border-t border-[rgba(212,165,116,0.1)]">
+  <div class="max-w-[1440px] mx-auto px-6 lg:px-16 pt-16 pb-8">
+    <!-- Top Section -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+      <!-- Studio Info -->
+      <div class="lg:col-span-1">
+        <a href="/" class="font-serif-tc text-xl text-[#F5F0EB] mb-4 inline-block">請進攝影棚</a>
+        <p class="font-sans-tc text-sm text-[#A09A94] leading-relaxed mt-4">
+          基隆唯一攝影棚出租服務<br />
+          專業攝影 × 造型妝髮<br />
+          為妳打造心中所想的畫面
+        </p>
+        <!-- Instagram -->
+        <a 
+          href="https://www.instagram.com/come.0507" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 mt-6 text-[#A09A94] hover:text-[#D4A574] transition-colors duration-400"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+          <span class="font-sans-tc text-sm">@come.0507</span>
+        </a>
+      </div>
+      
+      <!-- Services -->
+      <div>
+        <h4 class="font-sans-tc text-xs tracking-[0.15em] text-[#6B6560] uppercase mb-6">服務項目</h4>
+        <ul class="space-y-3">
+          {serviceLinks.map(link => (
+            <li>
+              <a href={link.href} class="font-sans-tc text-sm text-[#A09A94] hover:text-[#D4A574] transition-colors duration-400 link-animated">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <!-- Quick Links -->
+      <div>
+        <h4 class="font-sans-tc text-xs tracking-[0.15em] text-[#6B6560] uppercase mb-6">快速連結</h4>
+        <ul class="space-y-3">
+          {quickLinks.map(link => (
+            <li>
+              <a href={link.href} class="font-sans-tc text-sm text-[#A09A94] hover:text-[#D4A574] transition-colors duration-400 link-animated">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <!-- Contact -->
+      <div>
+        <h4 class="font-sans-tc text-xs tracking-[0.15em] text-[#6B6560] uppercase mb-6">聯絡我們</h4>
+        <div class="space-y-4">
+          <div>
+            <p class="font-sans-tc text-xs text-[#6B6560] mb-1">電話</p>
+            <a href="tel:+886918729311" class="font-sans-tc text-sm text-[#A09A94] hover:text-[#D4A574] transition-colors">
+              0918-729-311
+            </a>
+          </div>
+          <div>
+            <p class="font-sans-tc text-xs text-[#6B6560] mb-1">地址</p>
+            <p class="font-sans-tc text-sm text-[#A09A94] leading-relaxed">
+              基隆市仁愛區<br />孝四路8-3號3樓
+            </p>
+          </div>
+          <div>
+            <p class="font-sans-tc text-xs text-[#6B6560] mb-1">營業時間</p>
+            <p class="font-sans-tc text-sm text-[#A09A94]">24小時（預約制）</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Bottom Bar -->
+    <div class="pt-8 border-t border-[rgba(245,240,235,0.06)] flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="font-sans-tc text-xs text-[#6B6560]">
+        請進攝影棚 &copy; {new Date().getFullYear()}. All rights reserved.
+      </p>
+      <p class="font-caveat text-sm text-[#6B6560]">
+        Capturing moments, creating memories
+      </p>
+    </div>
+  </div>
+</footer>

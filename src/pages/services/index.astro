@@ -1,0 +1,438 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = '服務項目 | 請進攝影棚';
+const description = '請進攝影棚提供多樣專業攝影服務：個人寫真、孕婦寫真、閨蜜寫真、情侶寫真、全家福、寵物寫真。另有攝影棚出租服務。基隆唯一專業攝影棚，為你量身打造最美好的影像記憶。';
+
+const services = [
+  {
+    id: 'portrait',
+    number: '01',
+    name: '個人寫真',
+    keywords: '真實 · 力量 · 記憶',
+    description: '發掘獨特的自我風格，無論是清新自然還是時尚個性，我們幫你找到最適合的表達方式。每一張照片都是屬於你的獨家記憶。',
+    image: '/service-portrait.jpg',
+  },
+  {
+    id: 'maternity',
+    number: '02',
+    name: '孕婦寫真',
+    keywords: '光線 · 情感 · 時間',
+    description: '用柔和的燈光與優雅的姿態，為孕期留下最美麗的紀念。記錄生命最初的模樣，這是最動人的時刻。',
+    image: '/gallery-maternity.jpg',
+  },
+  {
+    id: 'friends',
+    number: '03',
+    name: '閨蜜寫真',
+    keywords: '友誼 · 歡笑 · 永恆',
+    description: '與最好的姐妹一起留下美好回憶。無論是搞怪還是優雅，你們的友誼值得被鏡頭永恆珍藏。',
+    image: '/hero-portrait.jpg',
+  },
+  {
+    id: 'couple',
+    number: '04',
+    name: '情侶寫真',
+    keywords: '浪漫 · 默契 · 甜蜜',
+    description: '記錄你們之間最真摯的互動與情感，讓每一張照片都充滿愛的溫度。愛情的模樣，值得被好好收藏。',
+    image: '/service-couple.jpg',
+  },
+  {
+    id: 'family',
+    number: '05',
+    name: '全家福',
+    keywords: '溫暖 · 團聚 · 傳承',
+    description: '凝聚一家人的溫暖時光，從三代同堂到親子互動，每個家庭都有屬於自己的故事。讓愛代代相傳。',
+    image: '/gallery-family.jpg',
+  },
+  {
+    id: 'pet',
+    number: '06',
+    name: '寵物寫真',
+    keywords: '純真 · 活潑 · 愛',
+    description: '把你的毛小孩當作家人般對待，用專業的攝影技術捕捉牠們最可愛的瞬間。純真的眼神，是最動人的畫面。',
+    image: '/gallery-pet.jpg',
+  },
+];
+
+const pricingTiers = [
+  {
+    name: '夏日套系',
+    subtitle: '3造型',
+    price: '12,000',
+    highlighted: false,
+    features: [
+      '三套工作室禮服',
+      '工作室場景加外拍基隆地區',
+      '拍攝時間6-7小時',
+      '全數照片電子檔（約150張）',
+      '精修30張',
+      '雲端下載',
+    ],
+  },
+  {
+    name: '雙人套系',
+    subtitle: '2造型',
+    price: '16,000',
+    highlighted: true,
+    label: 'MOST POPULAR',
+    features: [
+      '兩套工作室禮服',
+      '工作室場景加外拍',
+      '拍攝時間4-5小時',
+      '全數照片電子檔',
+      '精修40張',
+      '雲端下載',
+    ],
+  },
+  {
+    name: '婚紗套系',
+    subtitle: '',
+    price: '28,000',
+    priceSuffix: '起',
+    highlighted: false,
+    features: [
+      '專屬企劃',
+      '多套禮服',
+      '棚拍+外拍',
+      '精修60張',
+      '相本製作',
+      '專屬諮詢服務',
+    ],
+  },
+];
+
+const processSteps = [
+  { number: '01', title: '預約諮詢', description: '聯繫我們，討論你的拍攝需求與想法' },
+  { number: '02', title: '確認風格', description: '選擇造型、場景與拍攝風格方向' },
+  { number: '03', title: '拍攝日', description: '盡情享受專業的拍攝過程' },
+  { number: '04', title: '交件修圖', description: '精修照片交付，珍藏美好回憶' },
+];
+---
+
+<Layout title={title} description={description}>
+  <Navbar />
+
+  <!-- ====== SECTION 1: HERO ====== -->
+  <section class="relative w-full h-[60vh] min-h-[400px] overflow-hidden">
+    <img
+      src="/service-portrait.jpg"
+      alt="服務項目"
+      class="absolute inset-0 w-full h-full object-cover object-[center_20%]"
+    />
+    <div
+      class="absolute inset-0"
+      style="background: linear-gradient(to top, #0A0A0A 0%, rgba(10,10,10,0.5) 50%, rgba(10,10,10,0.3) 100%);"
+    />
+    <div class="relative z-10 flex flex-col justify-end h-full max-w-[1440px] mx-auto px-6 lg:px-20 pb-16 lg:pb-20">
+      <p class="reveal font-sans-tc text-[11px] tracking-[0.15em] text-[#D4A574] uppercase mb-3">
+        SERVICES
+      </p>
+      <h1 class="text-reveal font-serif-tc text-[32px] lg:text-[56px] text-[#F5F0EB] font-normal leading-[1.2] tracking-[0.01em] mb-4">
+        服務項目
+      </h1>
+      <p class="reveal font-sans-tc text-base text-[#A09A94] leading-relaxed max-w-md" style="transition-delay: 0.3s;">
+        為你量身打造的專業攝影體驗
+      </p>
+      <div class="gold-line mt-6" />
+    </div>
+  </section>
+
+  <!-- ====== SECTION 2: SERVICE CARDS ====== -->
+  <section class="relative bg-[#0A0A0A]" id="offerings">
+    <!-- Section Label -->
+    <div class="hidden lg:block absolute left-8 top-1/2 -translate-y-1/2">
+      <span class="section-label">OFFERINGS</span>
+    </div>
+
+    <div class="max-w-[1200px] mx-auto px-6 lg:px-20 py-20 lg:py-[150px]">
+      <!-- Section Header -->
+      <div class="text-center mb-16 lg:mb-20">
+        <h2 class="reveal font-serif-tc text-[28px] lg:text-[42px] text-[#F5F0EB] font-normal leading-[1.3] tracking-[0.01em] mb-4">
+          我們的服務
+        </h2>
+        <p class="reveal font-sans-tc text-base text-[#A09A94] leading-relaxed max-w-xl mx-auto" style="transition-delay: 0.1s;">
+          從個人寫真到全家福，每一種攝影需求我們都用心對待
+        </p>
+        <div class="gold-line mx-auto mt-6" />
+      </div>
+
+      <!-- Service Cards - Alternating Layout -->
+      <div class="space-y-16 lg:space-y-24">
+        {services.map((service, index) => {
+          const isEven = index % 2 === 0;
+          return (
+            <div
+              id={service.id}
+              class={`reveal flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-16 items-center`}
+              style={`transition-delay: ${0.08 * index}s;`}
+            >
+              <!-- Image -->
+              <div class="w-full lg:w-1/2 overflow-hidden group">
+                <div class="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.name}
+                    class="w-full h-full object-cover transition-transform duration-[800ms] group-hover:scale-[1.03]"
+                    style="transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="w-full lg:w-1/2 flex flex-col items-start">
+                <span class="font-playfair text-sm text-[#D4A574] opacity-50 mb-2">
+                  {service.number}
+                </span>
+                <h3 class="font-serif-tc text-[22px] lg:text-[28px] text-[#F5F0EB] font-normal leading-[1.4] mb-3">
+                  {service.name}
+                </h3>
+                <!-- Keywords in Playfair Display italic -->
+                <p class="font-playfair italic text-lg lg:text-xl text-[#D4A574] mb-5 tracking-wide">
+                  {service.keywords}
+                </p>
+                <div class="w-[30px] h-px bg-[#D4A574] mb-6" />
+                <p class="font-sans-tc text-sm lg:text-[15px] text-[#A09A94] font-light leading-[1.8] mb-6">
+                  {service.description}
+                </p>
+                <a
+                  href="#pricing"
+                  class="font-sans-tc text-[13px] text-[#D4A574] hover:text-[#F5F0EB] transition-colors duration-400 link-animated"
+                >
+                  了解詳情 &rarr;
+                </a>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== SECTION 3: PRICING TIERS ====== -->
+  <section class="relative bg-[#141414]" id="pricing">
+    <!-- Section Label -->
+    <div class="hidden lg:block absolute left-8 top-[200px]">
+      <span class="section-label">INVESTMENT</span>
+    </div>
+
+    <div class="max-w-[1200px] mx-auto px-6 lg:px-20 py-20 lg:py-[150px]">
+      <!-- Section Header -->
+      <div class="text-center mb-16 lg:mb-20">
+        <h2 class="reveal font-serif-tc text-[28px] lg:text-[42px] text-[#F5F0EB] font-normal leading-[1.3] tracking-[0.01em] mb-4">
+          套系方案
+        </h2>
+        <p class="reveal font-sans-tc text-base text-[#A09A94] leading-relaxed" style="transition-delay: 0.1s;">
+          透明合理的價格，無隱藏費用
+        </p>
+      </div>
+
+      <!-- Pricing Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {pricingTiers.map((tier, index) => (
+          <div
+            class={`reveal relative bg-[#0A0A0A] border ${
+              tier.highlighted
+                ? 'border-[rgba(212,165,116,0.3)] shadow-[0_8px_40px_rgba(212,165,116,0.08)]'
+                : 'border-[rgba(245,240,235,0.06)]'
+            }`}
+            style={`transition-delay: ${0.1 * index + 0.3}s;`}
+          >
+            {/* Top accent bar */}
+            <div class="w-full h-[3px] bg-[#D4A574]" />
+
+            {/* Highlighted label */}
+            {tier.label && (
+              <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <span class="font-sans-tc text-[10px] tracking-[0.1em] text-[#0A0A0A] bg-[#D4A574] px-3 py-1">
+                  {tier.label}
+                </span>
+              </div>
+            )}
+
+            {/* Card Content */}
+            <div class="px-6 lg:px-8 pt-8 pb-8">
+              <h3 class="font-serif-tc text-xl lg:text-2xl text-[#F5F0EB] text-center mb-2">
+                {tier.name}
+              </h3>
+              {tier.subtitle && (
+                <p class="font-sans-tc text-sm text-[#6B6560] text-center mb-4">
+                  {tier.subtitle}
+                </p>
+              )}
+
+              {/* Price with Cormorant Garamond, champagne gold */}
+              <div class="text-center mb-6">
+                <span class="font-playfair text-[12px] text-[#D4A574] tracking-wider mr-1">NT</span>
+                <span class="font-cormorant text-[48px] text-[#D4A574] font-normal leading-none">
+                  {tier.price}
+                </span>
+                {tier.priceSuffix && (
+                  <span class="font-sans-tc text-sm text-[#6B6560] ml-1">
+                    {tier.priceSuffix}
+                  </span>
+                )}
+                {!tier.priceSuffix && (
+                  <span class="block font-sans-tc text-sm text-[#6B6560] mt-2">
+                    / 套系
+                  </span>
+                )}
+              </div>
+
+              {/* Separator */}
+              <div class="w-full h-px bg-[rgba(245,240,235,0.06)] mb-6" />
+
+              {/* Features */}
+              <ul class="space-y-3 mb-8">
+                {tier.features.map(feature => (
+                  <li class="flex items-start gap-3">
+                    <svg
+                      class="w-3 h-3 text-[#D4A574] mt-1.5 flex-shrink-0"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                    >
+                      <polyline points="2,6 5,9 10,3" />
+                    </svg>
+                    <span class="font-sans-tc text-sm text-[#A09A94] leading-[1.6]">
+                      {feature}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* CTA */}
+              <a
+                href="/contact/"
+                class={`block text-center py-3.5 font-sans-tc text-sm font-medium tracking-[0.08em] transition-all duration-500 ${
+                  tier.highlighted
+                    ? 'border border-[#D4A574] text-[#D4A574] hover:bg-[#D4A574] hover:text-[#0A0A0A]'
+                    : 'border border-[rgba(245,240,235,0.2)] text-[#F5F0EB] hover:border-[#D4A574] hover:text-[#D4A574]'
+                }`}
+              >
+                選擇此方案
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Pricing Note */}
+      <p class="reveal text-center font-sans-tc text-[13px] text-[#6B6560] mt-10 leading-relaxed" style="transition-delay: 0.5s;">
+        以上價格均為參考，實際費用依拍攝內容調整。請聯繫我們獲取詳細報價。
+      </p>
+    </div>
+  </section>
+
+  <!-- ====== SECTION 4: PROCESS TIMELINE ====== -->
+  <section class="relative bg-[#0A0A0A]">
+    <div class="max-w-[1000px] mx-auto px-6 lg:px-20 py-20 lg:py-[150px]">
+      <!-- Section Header -->
+      <div class="text-center mb-16 lg:mb-20">
+        <h2 class="reveal font-serif-tc text-[28px] lg:text-[42px] text-[#F5F0EB] font-normal leading-[1.3] tracking-[0.01em] mb-4">
+          拍攝流程
+        </h2>
+        <p class="reveal font-sans-tc text-base text-[#A09A94] leading-relaxed" style="transition-delay: 0.1s;">
+          簡單四步驟，輕鬆完成預約
+        </p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="reveal relative">
+        {/* Connecting gold line - desktop only */}
+        <div class="hidden lg:block absolute top-[28px] left-[12.5%] right-[12.5%] h-px bg-[#D4A574] opacity-30" />
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-10 lg:gap-8">
+          {processSteps.map((step, index) => (
+            <div class="flex flex-col items-center text-center" style={`transition-delay: ${0.1 * index + 0.2}s;`}>
+              {/* Step Number */}
+              <div class="relative z-10 w-14 h-14 flex items-center justify-center border border-[#D4A574] bg-[#0A0A0A] mb-6">
+                <span class="font-playfair text-lg text-[#D4A574]">{step.number}</span>
+              </div>
+
+              {/* Arrow connector - mobile only */}
+              {index < processSteps.length - 1 && (
+                <div class="lg:hidden flex items-center justify-center mb-4">
+                  <svg class="w-4 h-4 text-[#D4A574] opacity-40" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1">
+                    <line x1="8" y1="0" x2="8" y2="12" />
+                    <polyline points="4,8 8,12 12,8" />
+                  </svg>
+                </div>
+              )}
+
+              <h3 class="font-serif-tc text-lg lg:text-xl text-[#F5F0EB] font-normal mb-3">
+                {step.title}
+              </h3>
+              <p class="font-sans-tc text-sm text-[#A09A94] font-light leading-[1.7] max-w-[200px]">
+                {step.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== SECTION 5: BOOKING CTA ====== -->
+  <section class="relative w-full" style="background: linear-gradient(to bottom, #0A0A0A 0%, #141414 100%); min-height: 50vh;">
+    <div class="max-w-[900px] mx-auto px-6 lg:px-20 py-20 lg:py-[120px] flex flex-col items-center text-center">
+      <p class="reveal font-sans-tc text-[11px] tracking-[0.15em] text-[#D4A574] uppercase mb-6">
+        RESERVE
+      </p>
+
+      {/* Gold decorative line */}
+      <div class="gold-line mb-8" />
+
+      <h2 class="text-reveal font-serif-tc text-[28px] lg:text-[48px] text-[#F5F0EB] font-normal leading-[1.2] tracking-[0.01em] mb-6">
+        準備好開始了嗎？
+      </h2>
+
+      <p class="reveal font-sans-tc text-base text-[#A09A94] leading-relaxed mb-10" style="transition-delay: 0.3s;">
+        24小時預約制，隨時歡迎你的來訪
+      </p>
+
+      <div class="reveal flex flex-col sm:flex-row items-center gap-6" style="transition-delay: 0.5s;">
+        <a href="/contact/" class="btn-primary">
+          立即預約
+        </a>
+        <a
+          href="tel:0918729311"
+          class="font-sans-tc text-sm text-[#A09A94] hover:text-[#D4A574] transition-colors duration-400"
+        >
+          0918-729-311
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Gold line draw animation for this page */
+  .gold-line {
+    position: relative;
+    width: 60px;
+    height: 1px;
+  }
+
+  .gold-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #D4A574;
+    transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+  }
+
+  .gold-line.revealed::before,
+  .gold-line.revealed::after {
+    width: 100%;
+  }
+</style>

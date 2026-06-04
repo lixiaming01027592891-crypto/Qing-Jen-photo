@@ -1,0 +1,472 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+// Category configuration
+const categories = [
+  { id: 'all', label: '全部' },
+  { id: 'portrait', label: '個人寫真' },
+  { id: 'maternity', label: '孕婦寫真' },
+  { id: 'friends', label: '閨蜜寫真' },
+  { id: 'couple', label: '情侶寫真' },
+  { id: 'family', label: '全家福' },
+  { id: 'pet', label: '寵物寫真' },
+];
+
+// Gallery items — 18 items across all categories with varying aspect ratios
+// Using available images from /public/ — cycling through the 6 gallery images
+const galleryItems = [
+  { id: 1,  category: 'portrait',  title: '晨光中的輪廓',   image: '/gallery-portrait.jpg',   aspect: '3/4' },
+  { id: 2,  category: 'maternity', title: '生命的溫柔',     image: '/gallery-maternity.jpg',  aspect: '3/4' },
+  { id: 3,  category: 'couple',    title: '相擁的溫度',     image: '/gallery-couple.jpg',     aspect: '4/3' },
+  { id: 4,  category: 'family',    title: '一家人的時光',   image: '/gallery-family.jpg',     aspect: '4/3' },
+  { id: 5,  category: 'pet',       title: '忠誠的眼神',     image: '/gallery-pet.jpg',        aspect: '1/1' },
+  { id: 6,  category: 'friends',   title: '閨蜜的午後',     image: '/gallery-portrait.jpg',   aspect: '3/4' },
+  { id: 7,  category: 'portrait',  title: '自信的姿態',     image: '/hero-portrait.jpg',      aspect: '3/4' },
+  { id: 8,  category: 'couple',    title: '海邊的約定',     image: '/gallery-couple.jpg',     aspect: '3/4' },
+  { id: 9,  category: 'maternity', title: '等待的喜悅',     image: '/gallery-maternity.jpg',  aspect: '4/3' },
+  { id: 10, category: 'family',    title: '三代同堂',       image: '/gallery-family.jpg',     aspect: '3/4' },
+  { id: 11, category: 'pet',       title: '貓咪的午後',     image: '/gallery-pet.jpg',        aspect: '1/1' },
+  { id: 12, category: 'friends',   title: '笑語嫣然',       image: '/gallery-portrait.jpg',   aspect: '4/3' },
+  { id: 13, category: 'portrait',  title: '光影之間',       image: '/hero-portrait.jpg',      aspect: '4/3' },
+  { id: 14, category: 'couple',    title: '攜手前行',       image: '/gallery-couple.jpg',     aspect: '3/4' },
+  { id: 15, category: 'maternity', title: '母性的光輝',     image: '/gallery-maternity.jpg',  aspect: '3/4' },
+  { id: 16, category: 'family',    title: '孩子的笑容',     image: '/gallery-family.jpg',     aspect: '4/3' },
+  { id: 17, category: 'pet',       title: '狗狗的生日',     image: '/gallery-pet.jpg',        aspect: '1/1' },
+  { id: 18, category: 'portrait',  title: '專業形象',       image: '/gallery-portrait.jpg',   aspect: '3/4' },
+];
+
+const seoTitle = '作品畫廊 | 請進攝影棚';
+const seoDescription = '探索請進攝影棚的完整作品畫廊，瀏覽個人寫真、孕婦寫真、閨蜜寫真、情侶寫真、全家福與寵物寫真等攝影作品。每一張照片，都是一段值得珍藏的故事。';
+---
+
+<Layout title={seoTitle} description={seoDescription}>
+  <Navbar />
+
+  <!-- ============ SECTION 1: PAGE HEADER ============ -->
+  <section class="page-header relative w-full overflow-hidden" style="height: 70vh;">
+    <!-- Background image -->
+    <div class="absolute inset-0">
+      <img
+        src="/hero-portrait.jpg"
+        alt="作品展示"
+        class="w-full h-full object-cover"
+        style="object-position: center 30%;"
+      />
+    </div>
+
+    <!-- Overlay gradient -->
+    <div
+      class="absolute inset-0"
+      style="background: linear-gradient(to top, #0A0A0A 0%, rgba(10,10,10,0.5) 50%, rgba(10,10,10,0.3) 100%);"
+    />
+
+    <!-- Content -->
+    <div class="photo-content">
+      <span
+        class="reveal inline-block font-sans-tc text-[11px] tracking-[0.15em] uppercase mb-4"
+        style="color: #D4A574;"
+      >
+        PORTFOLIO
+      </span>
+
+      <h1 class="text-reveal font-serif-tc text-[#F5F0EB] gold-line mb-6" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
+        作品展示
+      </h1>
+
+      <p class="reveal reveal-delay-3 font-sans-tc text-base leading-relaxed" style="color: #A09A94; max-width: 480px;">
+        每一張照片，都是一段值得珍藏的故事
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 2: FILTER BAR ============ -->
+  <section
+    id="filter-bar"
+    class="reveal w-full sticky z-40 border-b"
+    style="top: 64px; background: rgba(10,10,10,0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-color: rgba(245,240,235,0.06);"
+  >
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-20 py-4 flex items-center justify-center flex-wrap gap-2">
+      {categories.map((cat) => (
+        <button
+          type="button"
+          data-filter={cat.id}
+          class={`filter-btn font-sans-tc text-[13px] px-5 py-2 border transition-all duration-300 ${
+            cat.id === 'all'
+              ? 'text-[#0A0A0A] bg-[#D4A574] border-[#D4A574]'
+              : 'text-[#A09A94] bg-transparent border-transparent hover:text-[#F5F0EB] hover:border-[rgba(245,240,235,0.15)]'
+          }`}
+        >
+          {cat.label}
+        </button>
+      ))}
+    </div>
+  </section>
+
+  <!-- ============ SECTION 3: MASONRY GRID ============ -->
+  <section class="w-full bg-[#0A0A0A]" style="padding-bottom: 100px;">
+    <div class="masonry-grid">
+      {galleryItems.map((item, index) => (
+        <div
+          class="masonry-grid-item gallery-item"
+          data-category={item.category}
+          data-index={index}
+          data-title={item.title}
+          data-image={item.image}
+          style={`animation-delay: ${index * 0.04}s;`}
+        >
+          <img
+            src={item.image}
+            alt={item.title}
+            loading="lazy"
+            class="img-blur-load"
+            style={`aspect-ratio: ${item.aspect}; object-fit: cover;`}
+          />
+          <div class="item-overlay">
+            <span class="category-label">
+              {categories.find(c => c.id === item.category)?.label || item.category}
+            </span>
+            <span class="item-title font-serif-tc text-base text-[#F5F0EB] mt-1">
+              {item.title}
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div id="lightbox" class="lightbox">
+    <button id="lightbox-close" class="lightbox-close" aria-label="關閉">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+
+    <!-- Navigation arrows -->
+    <button id="lightbox-prev" class="lightbox-nav lightbox-nav-prev" aria-label="上一張">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+    </button>
+    <button id="lightbox-next" class="lightbox-nav lightbox-nav-next" aria-label="下一張">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </button>
+
+    <!-- Image container -->
+    <div class="lightbox-content flex flex-col items-center">
+      <img id="lightbox-img" src="" alt="" class="max-w-[90vw] max-h-[80vh] object-contain" />
+
+      <!-- Caption -->
+      <div id="lightbox-caption" class="mt-4 text-center">
+        <span id="lightbox-category" class="font-caveat text-sm" style="color: #D4A574;"></span>
+        <span id="lightbox-title" class="font-serif-tc text-base text-[#F5F0EB] ml-3"></span>
+      </div>
+
+      <!-- Counter -->
+      <span id="lightbox-counter" class="absolute bottom-6 right-6 font-sans-tc text-xs" style="color: #6B6560;"></span>
+    </div>
+  </div>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* Page header content positioning */
+  .photo-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    padding: 0 0 80px 80px;
+  }
+
+  @media (max-width: 768px) {
+    .photo-content {
+      padding: 0 0 60px 24px;
+    }
+  }
+
+  /* Gallery item entrance animation */
+  .gallery-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: galleryItemIn 0.5s var(--ease-expo-out) forwards;
+  }
+
+  @keyframes galleryItemIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Lightbox navigation buttons */
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background: none;
+    border: 1px solid rgba(245,240,235,0.15);
+    color: #A09A94;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+
+  .lightbox-nav:hover {
+    border-color: #D4A574;
+    color: #F5F0EB;
+  }
+
+  .lightbox-nav-prev {
+    left: 24px;
+  }
+
+  .lightbox-nav-next {
+    right: 24px;
+  }
+
+  @media (max-width: 768px) {
+    .lightbox-nav {
+      display: none;
+    }
+  }
+
+  /* Item overlay text */
+  .item-overlay .item-title {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  /* Filter active state override */
+  .filter-btn.active {
+    color: #0A0A0A !important;
+    background: #D4A574 !important;
+    border-color: #D4A574 !important;
+  }
+
+  /* Filtered item states */
+  .gallery-item.filter-hidden {
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+  }
+
+  .gallery-item.filter-visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Smooth transition for filter changes */
+  .gallery-item {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+</style>
+
+<script>
+  (function() {
+    // ====== FILTER FUNCTIONALITY ======
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    let activeFilter = 'all';
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        if (filter === activeFilter) return;
+
+        activeFilter = filter;
+
+        // Update button states
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Reset non-active button styles
+        filterBtns.forEach(b => {
+          if (!b.classList.contains('active')) {
+            b.style.color = '';
+            b.style.background = '';
+            b.style.borderColor = '';
+          }
+        });
+
+        // Filter items with animation
+        let visibleIndex = 0;
+        galleryItems.forEach((item) => {
+          const itemCategory = item.dataset.category;
+          const matches = filter === 'all' || itemCategory === filter;
+
+          if (matches) {
+            item.classList.remove('filter-hidden');
+            item.classList.add('filter-visible');
+            item.style.display = '';
+            item.style.animationDelay = `${visibleIndex * 0.05}s`;
+            item.style.animationName = 'none';
+            // Trigger reflow to restart animation
+            void item.offsetHeight;
+            item.style.animationName = 'galleryItemIn';
+            visibleIndex++;
+          } else {
+            item.classList.add('filter-hidden');
+            item.classList.remove('filter-visible');
+            setTimeout(() => {
+              if (item.classList.contains('filter-hidden')) {
+                item.style.display = 'none';
+              }
+            }, 300);
+          }
+        });
+      });
+    });
+
+    // ====== LIGHTBOX FUNCTIONALITY ======
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCategory = document.getElementById('lightbox-category');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxCounter = document.getElementById('lightbox-counter');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
+
+    let currentIndex = 0;
+    let visibleItems = Array.from(galleryItems);
+
+    // Category label map
+    const categoryLabels = {
+      portrait: '個人寫真',
+      maternity: '孕婦寫真',
+      friends: '閨蜜寫真',
+      couple: '情侶寫真',
+      family: '全家福',
+      pet: '寵物寫真',
+    };
+
+    function updateVisibleItems() {
+      visibleItems = Array.from(galleryItems).filter(item => {
+        if (activeFilter === 'all') return true;
+        return item.dataset.category === activeFilter && !item.classList.contains('filter-hidden');
+      });
+    }
+
+    function openLightbox(index) {
+      updateVisibleItems();
+      if (visibleItems.length === 0) return;
+
+      // Find the actual index in visible items
+      const item = galleryItems[index];
+      currentIndex = visibleItems.indexOf(item);
+      if (currentIndex === -1) currentIndex = 0;
+
+      updateLightboxContent();
+      lightbox?.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function updateLightboxContent() {
+      const item = visibleItems[currentIndex];
+      if (!item) return;
+
+      const img = item.querySelector('img');
+      const category = item.dataset.category || '';
+      const title = item.dataset.title || '';
+
+      if (lightboxImg) {
+        lightboxImg.src = img?.src || '';
+        lightboxImg.alt = title;
+      }
+      if (lightboxCategory) {
+        lightboxCategory.textContent = categoryLabels[category] || category;
+      }
+      if (lightboxTitle) {
+        lightboxTitle.textContent = title;
+      }
+      if (lightboxCounter) {
+        lightboxCounter.textContent = `${currentIndex + 1} / ${visibleItems.length}`;
+      }
+    }
+
+    function closeLightbox() {
+      lightbox?.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function nextImage() {
+      if (visibleItems.length <= 1) return;
+      currentIndex = (currentIndex + 1) % visibleItems.length;
+      // Slide animation
+      if (lightboxImg) {
+        lightboxImg.style.transition = 'transform 0.2s ease, opacity 0.2s ease';
+        lightboxImg.style.transform = 'translateX(-50px)';
+        lightboxImg.style.opacity = '0';
+        setTimeout(() => {
+          updateLightboxContent();
+          lightboxImg.style.transform = 'translateX(50px)';
+          setTimeout(() => {
+            lightboxImg.style.transition = 'transform 0.3s var(--ease-expo-out), opacity 0.3s ease';
+            lightboxImg.style.transform = 'translateX(0)';
+            lightboxImg.style.opacity = '1';
+          }, 50);
+        }, 200);
+      } else {
+        updateLightboxContent();
+      }
+    }
+
+    function prevImage() {
+      if (visibleItems.length <= 1) return;
+      currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
+      // Slide animation (reverse)
+      if (lightboxImg) {
+        lightboxImg.style.transition = 'transform 0.2s ease, opacity 0.2s ease';
+        lightboxImg.style.transform = 'translateX(50px)';
+        lightboxImg.style.opacity = '0';
+        setTimeout(() => {
+          updateLightboxContent();
+          lightboxImg.style.transform = 'translateX(-50px)';
+          setTimeout(() => {
+            lightboxImg.style.transition = 'transform 0.3s var(--ease-expo-out), opacity 0.3s ease';
+            lightboxImg.style.transform = 'translateX(0)';
+            lightboxImg.style.opacity = '1';
+          }, 50);
+        }, 200);
+      } else {
+        updateLightboxContent();
+      }
+    }
+
+    // Click handlers for gallery items
+    galleryItems.forEach((item, index) => {
+      item.addEventListener('click', () => openLightbox(index));
+    });
+
+    // Lightbox control handlers
+    lightboxClose?.addEventListener('click', closeLightbox);
+    lightboxNext?.addEventListener('click', (e) => { e.stopPropagation(); nextImage(); });
+    lightboxPrev?.addEventListener('click', (e) => { e.stopPropagation(); prevImage(); });
+
+    // Close on overlay click
+    lightbox?.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    // Keyboard support
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox?.classList.contains('active')) return;
+
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'ArrowLeft') prevImage();
+    });
+  })();
+</script>

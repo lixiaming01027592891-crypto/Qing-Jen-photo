@@ -1,0 +1,581 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+export function getStaticPaths() {
+  // Define a helper to generate article content
+  const articles: Record<string, string> = {
+    'indoor-natural-lighting-tips': `<p class="lead">室內攝影最大的挑戰，往往就是光線不足。許多人以為拍出自然光感一定要有大片的窗戶或是昂貴的專業燈具，但事實上，只要掌握幾個關鍵技巧，即使在普通的家裡或攝影棚，也能創造出柔和、溫暖且自然的畫面氛圍。</p>
+
+<h2>理解自然光的特性</h2>
+<p>自然光最大的特色在於它的<strong>柔和與方向性</strong>。與直接閃光相比，自然光能創造出更均勻的陰影過渡，讓皮膚看起來更細緻，輪廓更立體。在室內環境中，我們要做的就是「模擬」自然光的這種特性，而不是直接使用刺眼的裸燈。</p>
+<p>最常見的做法是利用窗光。窗戶就像一個巨大的柔光箱，光線透過玻璃的擴散變得柔和。關鍵在於讓被攝者面向窗戶，或是讓光線從側面45度角照射進來。這個角度能同時勾勒出臉部的立體感，又不會產生過於強烈的陰影。</p>
+
+<h2>善用反射與擴散</h2>
+<p>如果現場只有一盞燈該怎麼辦？答案很簡單：讓它「反射」。將燈光打向白色的牆壁或天花板，讓反射光線均勻地灑落在被攝者身上。這種「跳燈」技巧能讓原本集中的硬光變成面狀的柔光，效果類似自然光從大窗戶灑入的感覺。</p>
+
+<blockquote>「最好的燈具是你看不到的燈具。當光線變得無形，被攝者就會成為畫面的唯一焦點。」<cite>—— 林小雅，首席攝影師</cite></blockquote>
+
+<p>另外，半透明的白窗簾、描圖紙，甚至白色的浴簾都可以成為絕佳的柔光材料。將這些材料掛在燈具前方，就能讓光線通過時被均勻擴散。記住，柔光材料離燈越近，光線越硬；離被攝者越近，光線越柔和。</p>
+
+<h3>單燈打光的三個位置</h3>
+<ul>
+<li><strong>主光（Key Light）：</strong>主要光源，決定畫面的整體氛圍。放在被攝者前方45度側邊，略高於視線的位置。</li>
+<li><strong>補光（Fill Light）：</strong>減輕主光造成的陰影。可以用反射板或另一盞較弱的燈，放在主光的對側。</li>
+<li><strong>輪廓光（Rim Light）：</strong>從被攝者後方打來，勾勒髮絲和肩膀的邊緣，讓主體從背景中分離出來。</li>
+</ul>
+
+<h2>色溫的統一</h2>
+<p>室內打光最常見的失誤，就是忽略色溫的統一。日光燈偏綠、鎢絲燈偏黃、LED燈則因品牌而異。混合使用不同光源會讓照片看起來髒髒的，皮膚色調也會不自然。</p>
+<p>解決方法是盡量使用同一品牌、同一型號的燈具，並且手動設定相機的白平衡。如果現場有無法關閉的環境光源（如日光燈），可以在你的燈具上加上對應的色片（Gel）來匹配環境光的色溫。</p>
+
+<div class="tip-box"><div class="tip-box-title">攝影師小提醒</div><p>拍攝RAW檔！RAW格式保留了最完整的色溫資訊，後期調整時能讓你有更大的彈性來修正白平衡，這是室內攝影的保險策略。</p></div>
+
+<h2>利用環境反射創造氛圍</h2>
+<p>除了直接打光，聰明的攝影師還會利用環境來「偷光」。淺色的地板、牆壁、家具都是天然的反射板。在攝影棚中，我們常會在地面鋪上白色的珍珠板，讓光線從下方反射回來，填補下巴和眼窩的陰影，這種「底光」能讓眼神更有神。</p>
+<p>想創造溫暖的氛圍，可以在燈具前方掛上淺橘色的色片，或是在反射板上貼上金色的反光材質。金色反射光模擬的是夕陽時分的暖色調，特別適合拍攝人像、孕婦寫真等需要溫馨感的題材。</p>
+
+<h3>常見錯誤與修正</h3>
+<p>許多初學者會犯的錯誤是把燈直接對著被攝者打。這樣做會產生強烈的陰影、過曝的高光點，以及不美觀的反光。記住一個原則：「燈越大、越近、越偏，光線就越柔和。」</p>
+<p>另一個常見問題是光線太平。如果主光和補光的亮度太接近，照片會失去立體感，看起來像證件照。適當保留一些陰影的對比度，畫面才會有生氣。一般來說，主光和補光的比例保持在2:1到4:1之間最為理想。</p>
+
+<h2>結語</h2>
+<p>室內自然光感的營造，本質上就是對「柔光」的理解與實踐。不需要最昂貴的器材，只需要一盞燈、一塊反射板，以及對光線方向的敏銳觀察。下次在室內拍照時，不妨先關掉所有的燈，觀察窗戶光線在空間中的流動，你會發現大自然已經為你準備好了最好的燈具。</p>`,
+
+    'posing-tips-for-photoshoot': `<p class="lead">「我面對鏡頭會很緊張怎麼辦？」這是我們在工作室最常聽到的一句話。其實，幾乎每個人在鏡頭前都會感到不自在，這完全正常。作為攝影師，我的任務不是讓你「擺」出一個姿勢，而是引導你進入一個自然、舒適的狀態。以下這五個技巧，是我多年來幫助無數客人找到自信姿態的精華整理。</p>
+
+<h2>技巧一：先動起來，再定格</h2>
+<p>最糟糕的事情，就是一開始就要求被攝者站好不要動。僵硬的身體會直接反映在照片裡。我習慣先讓客人做一些簡單的動作：原地踏步、伸展手臂、或是簡單地轉圈。這些動作能放鬆肌肉，也能讓注意力從「被拍攝」轉移到身體的感知上。</p>
+
+<h2>技巧二：找到你的最佳角度</h2>
+<p>每個人都有屬於自己的最佳角度。一般來說，將身體轉向側面約45度，然後把面向鏡頭的肩膀微微下沉，能創造出最顯瘦的輪廓。臉部則可以稍微向下壓、然後將下巴微微往前推——這個動作能拉長頸部線條，消除雙下巴的困擾。</p>
+
+<blockquote>「最好的姿勢不是擺出來的，是從內在的自信中長出來的。」<cite>—— 林小雅，首席攝影師</cite></blockquote>
+
+<h3>不同身形的調整建議</h3>
+<ul>
+<li><strong>想顯高：</strong>雙腳交叉站立，重心放在後腳，前腳腳尖點地。這個姿勢能拉長腿部線條。</li>
+<li><strong>想顯瘦：</strong>手臂與身體之間留一點空隙，不要完全貼緊。這個小細節能讓腰部看起來更纖細。</li>
+<li><strong>圓臉修飾：</strong>頭部稍微側轉，讓臉部呈現3/4角度，會比正面更立體。</li>
+</ul>
+
+<h2>技巧三：手該怎麼放？</h2>
+<p>手部是姿勢中最容易顯得尷尬的部位。解決方法是「給手一個任務」。可以撥弄頭髮、輕觸臉頰、插口袋、或是自然地垂放在身側（記得手指輕輕彎曲，不要完全伸直）。</p>
+
+<h2>技巧四：眼神的力量</h2>
+<p>一張好照片最重要的往往不是姿勢，而是眼神。直視鏡頭能營造自信和連結感，但持續盯著鏡頭會讓眼睛變得僵硬。我會請客人先看向別處，在轉頭看向鏡頭的瞬間按下快門，那個「剛剛對上焦」的眼神是最有靈氣的。</p>
+
+<div class="tip-box"><div class="tip-box-title">給害羞客人的小技巧</div><p>如果你真的很緊張，可以請攝影師不要直接拍你，而是先「試光」。沒有鏡頭壓力的情況下，你會自然許多。很多最自然的照片，其實都是這種「假裝在試光」的時候拍到的！</p></div>
+
+<h2>技巧五：情緒引導比姿勢更重要</h2>
+<p>專業的攝影師不會只關注你的姿勢，而是會透過聊天、講笑話、或是給你一些情境的想像來引導情緒。例如：「想像你剛聽到一個好消息」、或是「閉上眼睛，想像你在一個很舒服的地方」。這些引導能讓你的表情從內而外地散發出來，而不是硬擠出的笑容。</p>
+
+<h2>結語</h2>
+<p>記住，沒有所謂「完美」的姿勢。最動人的照片，往往是那些帶著一點不完美、卻充滿真實情感的瞬間。攝影師的任務是創造一個讓你感到安全、自在的環境，然後用相機捕捉那個最真實的你。來「請進攝影棚」，讓我們一起發現你的美。</p>`,
+
+    'camera-settings-beginner-guide': `<p class="lead">拿起相機，看著機身上各種轉盤和按鈕，許多攝影新手都會感到一陣茫然。光圈、快門、ISO——這三個看似簡單的參數，卻是攝影技術的基石。理解它們之間的關係，就像是學會了駕駛攝影這台車，從此可以通往任何你想像得到的畫面。</p>
+
+<h2>光圈：控制景深與進光量</h2>
+<p>光圈（Aperture）位於鏡頭內部，就像人眼的瞳孔，控制著進入相機的光線量。光圈的數值以「f/」表示，例如 f/1.8、f/2.8、f/5.6、f/11 等等。這個數字越小，代表光圈開得越大，進光量越多；數字越大，光圈越小，進光量越少。</p>
+<p>光圈最重要的功能之一是<strong>控制景深</strong>。大光圈（如 f/1.8）能創造淺景深的效果，讓背景模糊，主體突出，這種效果稱為「散景」（Bokeh），特別適合人像攝影。小光圈（如 f/11）則能讓整個畫面從前景到背景都清晰，適合拍攝風景或團體照。</p>
+
+<h3>常見光圈值的應用場景</h3>
+<ul>
+<li><strong>f/1.4 - f/2.8：</strong>人像、特寫、低光源環境。極淺景深，背景會呈現夢幻般的模糊。</li>
+<li><strong>f/4 - f/5.6：</strong>一般日常拍攝、街拍。適中的景深，主體清晰，背景還帶有一點模糊。</li>
+<li><strong>f/8 - f/11：</strong>風景、團體照、需要整體清晰的場景。大部分鏡頭在這個光圈值也有最佳的畫質表現。</li>
+</ul>
+
+<h2>快門速度：凍結與流動</h2>
+<p>快門（Shutter Speed）控制感光元件暴露在光線下的時間長短。快門速度以秒為單位，常見的有 1/1000秒、1/250秒、1/60秒、1秒等等。快門速度越快，越能凍結瞬間的動作；速度越慢，則會記錄下動態的軌跡。</p>
+
+<h2>ISO：感光度的藝術</h2>
+<p>ISO 代表相機感光元件對光線的敏感程度。ISO 越低（如 ISO 100），畫質越細膩、雜訊越少，但需要較多的光線；ISO 越高（如 ISO 3200），相機對光線越敏感，能在暗處拍攝，但畫面會出現顆粒感和雜訊。</p>
+
+<div class="tip-box"><div class="tip-box-title">新手常見問題</div><p>為什麼我的照片都糊糊的？最大的可能性是快門速度太慢導致手震，或是對焦不準。建議先將相機設為自動對焦，快門速度保持在安全快門以上，再逐步嘗試手動控制。</p></div>
+
+<h2>曝光三角：三者之間的平衡</h2>
+<p>光圈、快門、ISO 三者共同決定了照片的曝光。改變其中一個參數，勢必會影響另外兩個。這就是所謂的「曝光三角」。理解這個三角關係，是攝影入門最重要的一課。</p>
+
+<h2>結語</h2>
+<p>光圈、快門、ISO 看似是三個獨立的參數，實際上它們是緊密相連的。剛開始學攝影時，建議從光圈優先模式開始，先學會用光圈控制景深，讓相機幫你處理其他設定。隨著經驗累積，你會逐漸建立起對光線的直覺，知道在什麼場景下該用什麼設定。攝影是一門需要練習的技藝，拿起相機，開始拍攝吧！</p>`,
+
+    'maternity-photoshoot-timing': `<p class="lead">懷孕是一段神奇的旅程，而孕婦寫真就是將這段旅程中最美好的模樣永恆定格。許多準媽媽都會問：「孕期什麼時候拍孕婦照最適合？」根據我們拍攝過上百組孕婦寫真的經驗，答案是：懷孕32到36週是拍攝孕婦寫真的黃金時期。</p>
+
+<h2>為什麼32-36週是黃金期？</h2>
+<p>在懷孕32週之前，肚子可能還不夠明顯，拍出來的照片缺少那種「圓潤飽滿」的孕味。而到了36週之後，許多準媽媽會開始出現水腫、腰酸背痛的情況，長時間的拍攝可能會造成身體的負擔。32到36週這個時間段，恰好處於「肚子夠大、體力還好」的理想平衡點。</p>
+
+<blockquote>「孕婦寫真不只是記錄肚子的變化，更是捕捉一個女人成為母親前，身上散發出的那種獨特光輝。那種光輝，我們稱之為『母性的美』。」<cite>—— 林小雅，首席攝影師</cite></blockquote>
+
+<h2>拍攝前的準備事項</h2>
+<h3>服裝選擇</h3>
+<p>孕婦寫真的服裝選擇非常重要。一般來說，我們會建議準媽媽準備兩到三套不同風格的服裝。最常見的選擇包括：貼身的長洋裝（能完美展現孕肚曲線）、寬鬆飄逸的紗裙（營造夢幻氛圍）、以及簡約的內衣或背心（展現身體線條之美）。</p>
+
+<h3>造型與妝髮</h3>
+<p>我們強烈建議孕婦寫真搭配專業的妝髮造型。懷孕期間皮膚狀況可能會有變化，專業的化妝師能幫你打造最適合上鏡的妝容。髮型方面，自然的捲髮或盤髮都很適合，重點是要讓整體造型看起來柔和、有精神。</p>
+
+<h2>拍攝風格的選擇</h2>
+<ul>
+<li><strong>唯美柔和風：</strong>使用大量的紗質、花卉元素，搭配柔和的燈光，營造夢幻的氛圍。這是最經典、最受歡迎的孕婦寫真風格。</li>
+<li><strong>簡約時尚風：</strong>以簡單的背景和服裝，強調孕婦本身的線條美。這種風格比較現代，適合喜歡乾淨利落的準媽媽。</li>
+<li><strong>家庭溫馨風：</strong>邀請先生或大寶一起入鏡，記錄全家人一起期待新生命到來的溫馨時刻。這種風格的照片特別有意義。</li>
+</ul>
+
+<div class="tip-box"><div class="tip-box-title">給準媽媽的貼心提醒</div><p>拍攝前一夜請早點休息，拍攝當天可以吃點東西但不要過飽。帶上你最喜歡的小零食和水，拍攝過程中隨時可以休息。記住，你的舒適是最重要的！</p></div>
+
+<h2>結語</h2>
+<p>孕婦寫真是一份給自己、也給寶寶的珍貴禮物。當寶寶長大後，這些照片會成為你們之間最溫暖的連結。無論你選擇什麼風格、什麼時間點拍攝，最重要的是享受這個過程，感受身體裡孕育新生命的奇蹟。來「請進攝影棚」，讓我們一起為你記錄這段最美好的時光。</p>`,
+
+    'family-photo-guide': `<p class="lead">全家福是最有意義的攝影題材之一，但也是最讓攝影師頭痛的挑戰。困難不在於光線或構圖，而在於如何讓一家人在同一個時間點，都呈現出自然、開心的表情。根據我們多年的家庭攝影經驗，成功的關鍵不在技術，而在「引導」——讓每個家庭成員都能在鏡頭前放鬆、做自己。</p>
+
+<h2>創造放鬆的拍攝氛圍</h2>
+<p>拍攝全家福之前，我們會先花一些時間和每個家庭成員聊天，尤其是小朋友。讓他們熟悉攝影師和環境，消除「被陌生人拍照」的緊張感。有時候我們會放一些孩子喜歡的音樂，或是讓爸爸媽媽帶上孩子最愛的玩具作為拍攝道具。</p>
+
+<blockquote>「最完美的全家福，不是每個人都看著鏡頭微笑的照片，而是那個大家因為某個笑話而笑得東倒西歪的瞬間。」<cite>—— 林小雅，首席攝影師</cite></blockquote>
+
+<h3>針對不同年齡層的引導技巧</h3>
+<ul>
+<li><strong>嬰幼兒（0-2歲）：</strong>讓父母抱著、陪著玩，攝影師負責抓拍。我們會準備一些色彩鮮豔的玩具來吸引注意力。</li>
+<li><strong>學齡前（3-6歲）：</strong>這個階段的孩子充滿好奇心但耐性有限。我們會把拍攝時間控制在30分鐘內，用「捉迷藏」或「比賽誰笑得最大聲」這類遊戲來引導。</li>
+<li><strong>學齡期（7-12歲）：</strong>我們會給他們一點「特別任務」，例如負責讓弟弟妹妹笑，讓他們覺得自己是重要的一員。</li>
+</ul>
+
+<h2>抓住真實的情感瞬間</h2>
+<p>專業的家庭攝影師會隨時保持警覺，觀察家庭成員之間的自然互動。也許是媽媽幫孩子整理頭髮的瞬間、爸爸偷偷親媽媽臉頰的俏皮、或是兄弟姐妹之間的小爭執後又和好的擁抱。這些不經意的時刻，往往比精心擺拍的畫面更動人。</p>
+
+<div class="tip-box"><div class="tip-box-title">拍攝前的小建議</div><p>全家一起挑選服裝是個增進感情的好機會！選擇同一色系的服裝（例如米色、藍色、白色系），但不要穿完全一樣的衣服。避免大logo和過於花俏的圖案，這些會分散注意力。</p></div>
+
+<h2>結語</h2>
+<p>全家福的價值不在於照片本身，而在於它所記錄的時光。看著照片裡孩子們稚嫩的臉龐、父母臉上的皺紋、全家人緊緊相依的模樣，你會知道這些都是無可取代的珍貴回憶。來「請進攝影棚」，讓我們幫你定格屬於你們家的溫暖時光。</p>`,
+
+    'pet-photography-tips': `<p class="lead">寵物攝影是攝影領域中最不可預測、但也最有回報的類型之一。你無法要求一隻狗狗「看鏡頭笑一下」，也無法叫一隻貓咪「保持這個姿勢」。但正是這種不可預測性，讓每一張成功的寵物照片都充滿了驚喜和真實的情感。</p>
+
+<h2>了解你的模特兒</h2>
+<p>每隻寵物都有不同的個性。有些狗狗一看到鏡頭就興奮地撲過來，有些貓咪則會躲到沙發底下。拍攝前，先花時間觀察寵物的行為模式，了解牠們喜歡什麼、害怕什麼，這比任何攝影技術都重要。</p>
+<p>我們通常會在正式拍攝前，讓寵物先在攝影棚裡自由探索15到20分鐘。讓牠聞聞角落、走走逛逛，熟悉這個新環境。這個「暖身」時間能大幅降低寵物的焦慮感，接下來的拍攝就會順利許多。</p>
+
+<blockquote>「拍寵物的秘訣不是控制牠，而是預判牠。當你學會讀懂寵物的肢體語言，你就知道精彩瞬間即將發生。」<cite>—— 王凱文，寵物攝影師</cite></blockquote>
+
+<h2>誘導技巧大公開</h2>
+<p>讓寵物看鏡頭是寵物攝影最大的挑戰。我們的秘密武器是「發聲器」——一種會發出鳥叫聲或老鼠吱吱聲的小道具。這些聲音能瞬間吸引寵物的注意力，讓牠們的耳朵豎起、頭轉過來，眼神中充滿好奇。這個瞬間就是按下快門的最佳時機。</p>
+
+<h3>不同寵物的拍攝策略</h3>
+<ul>
+<li><strong>狗狗：</strong>多數狗狗對聲音和零食最有反應。讓主人站在攝影師旁邊呼喚牠的名字，或是用牠最愛的零食引導視線。</li>
+<li><strong>貓咪：</strong>貓咪是自主意識很強的動物，強迫只會適得其反。我們會準備貓草、逗貓棒來吸引牠們的注意力。</li>
+</ul>
+
+<div class="tip-box"><div class="tip-box-title">器材小建議</div><p>拍攝寵物建議使用快門速度至少 1/250秒以上的相機設定，才能凍結牠們突然的動作。對焦模式設為「連續對焦」（AF-C），這樣即使寵物移動，相機也能持續追蹤焦點。</p></div>
+
+<h2>結語</h2>
+<p>寵物攝影最大的樂趣在於，你永遠不知道下一秒會發生什麼。也許是一個歪頭的表情、一個大大的哈欠、或是一個飛奔的瞬間。這些都是屬於你們家毛孩獨一無二的回憶。來「請進攝影棚」，讓我們一起為你的毛孩留下最可愛的身影。</p>`,
+
+    'friend-portrait-outfit-guide': `<p class="lead">閨蜜寫真不只是一組好看的照片，更是友誼的見證。而穿搭，則是閨蜜寫真中決定畫面整體感的關鍵因素。穿得一模一樣已經過時了，現在的閨蜜穿搭講究的是「協調中有個性」——既能看出你們的默契，又能展現各自的獨特風格。</p>
+
+<h2>配色原則：和諧而不單調</h2>
+<p>閨蜜穿搭最重要的一點就是「色系統一」。你們不需要穿完全一樣的衣服，但顏色要在同一個調性裡。最簡單的方法是選擇一個主色調，然後每個人在這個色調中選擇自己喜歡的深淺變化。</p>
+
+<blockquote>「最好的閨蜜穿搭，是讓人一眼就能看出你們是一起的，但再看一眼，又能發現每個人都閃閃發光。」<cite>—— 林小雅，首席攝影師</cite></blockquote>
+
+<h3>推薦配色組合</h3>
+<ul>
+<li><strong>奶茶色系：</strong>米色、駝色、燕麥色、淺棕色。溫柔又有質感，適合走氣質路線的閨蜜組合。</li>
+<li><strong>乾燥玫瑰色系：</strong>霧粉色、豆沙色、玫瑰粉。浪漫又少女，拍出來的畫面會非常夢幻。</li>
+<li><strong>霧藍色系：</strong>嬰兒藍、灰藍、牛仔藍。清新又耐看，適合喜歡簡約風格的閨蜜。</li>
+</ul>
+
+<h2>材質的選擇</h2>
+<p>拍照時，衣服的材質會直接影響畫面的質感。我們特別推薦以下幾種材質：雪紡/紗質（飄逸感強）、針織（溫柔有質感）、亞麻/棉麻（自然質樸）。</p>
+
+<div class="tip-box"><div class="tip-box-title">避開這些雷區</div><p>避免穿有大logo或卡通圖案的衣服，也要避免過於鮮豔的螢光色系，這些顏色在鏡頭前容易顯得廉價。</p></div>
+
+<h2>結語</h2>
+<p>閨蜜寫真的穿搭，說穿了就是「協調」二字。色系協調、風格協調、氛圍協調，在這個基礎上，每個人再展現自己的獨特魅力。來「請進攝影棚」之前，不妨和閨蜜們一起逛個街、喝個下午茶，邊聊天邊挑選衣服——這個過程本身，就是閨蜜情誼最美好的部分。</p>`,
+
+    'couple-photography-poses': `<p class="lead">情侶寫真中最動人的畫面，從來不是完美擺拍的姿勢，而是兩個人之間自然流動的情感。一個不經意的眼神交會、一個下意識的牽手動作、或是因為對方說了什麼而綻放的笑容——這些真實的互動瞬間，才是情侶寫真最珍貴的價值所在。</p>
+
+<h2>從「擺拍」到「引導」</h2>
+<p>我們工作室拍攝情侶寫真的哲學是「引導式拍攝」。與其告訴情侶「你們站這裡、手放這裡」，我們更喜歡給他們一個情境或任務，讓他們在互動中產生自然的畫面。</p>
+
+<blockquote>「最好的情侶照，是當他們忘記攝影師存在的時候拍到的。因為那一刻，他們的眼中只有彼此。」<cite>—— 林小雅，首席攝影師</cite></blockquote>
+
+<h2>經典姿勢的變化</h2>
+<h3>擁抱的各種樣貌</h3>
+<ul>
+<li><strong>從背後環抱：</strong>男生從背後輕輕抱住女生，下巴靠在肩膀或頭頂。這個姿勢很有保護感，拍側面輪廓特別美。</li>
+<li><strong>正面緊擁：</strong>兩人面對面擁抱，可以請他們閉上眼睛，感受彼此的呼吸和心跳。這個畫面非常深情。</li>
+<li><strong>單手攬肩：</strong>輕鬆自然的走路姿勢，一手攬著對方的肩膀或腰。這種不經意的親密最動人。</li>
+</ul>
+
+<h2>動態拍攝：走、跑、轉</h2>
+<p>靜態的姿勢拍久了會顯得僵硬，這時候加入一些動態元素能讓整組照片更有活力。手牽手向前走、旋轉、追逐、跳舞——這些自然的互動能捕捉到最真實的笑容。</p>
+
+<div class="tip-box"><div class="tip-box-title">給情侶的小建議</div><p>不要擔心笑場或動作不協調，那些「不完美」的瞬間往往最真實。如果你們平常就不是那種會在公共場合放閃的類型，可以先在家裡練習一些簡單的互動。</p></div>
+
+<h2>結語</h2>
+<p>情侶寫真不是為了展示「我們多甜蜜」，而是為了在日後的某一天，當你們翻開相簿時，能重新感受到當初相愛的溫度。那些自然互動的瞬間，會比任何精心設計的姿勢都更有力量。來「請進攝影棚」，讓我們見證並記錄屬於你們的愛情故事。</p>`,
+
+    'studio-rental-first-timer-guide': `<p class="lead">第一次走進攝影棚，面對各式各樣的燈具、背景紙和專業設備，那種興奮中夾雜著緊張的感覺，每個攝影師都經歷過。無論你是剛開始接案的自由接案者，還是想要嘗試棚內拍攝的愛好者，租借攝影棚都是一個重要的里程碑。</p>
+
+<h2>選擇適合的攝影棚</h2>
+<p>攝影棚的選擇要根據你的拍攝需求來決定。首先考慮的是空間大小：如果你只是拍攝個人寫真或小品，一個小型的棚（約5-8坪）就足夠了；如果是團體照、全家福，則需要至少10坪以上的空間。</p>
+
+<h3>場地勘察的重點</h3>
+<ul>
+<li><strong>燈具與器材：</strong>場地提供哪些燈具？是否包含燈架、柔光箱、反射板等配件？</li>
+<li><strong>背景系統：</strong>有哪些顏色的背景紙或背景布？是否可以更換？</li>
+<li><strong>電力供應：</strong>場地的插座數量和位置是否充足？</li>
+<li><strong>化妝與休息區：</strong>是否有獨立的化妝空間和更衣室？</li>
+<li><strong>交通便利性：</strong>是否有停車位？離捷運站或公車站多遠？</li>
+</ul>
+
+<blockquote>「選擇攝影棚不只是選空間，更是選擇一個能讓你專注創作的環境。好的攝影棚會讓你忘記器材的煩惱，專心在拍攝上。」<cite>—— 陳大維，攝影技術顧問</cite></blockquote>
+
+<h2>時間規劃是關鍵</h2>
+<p>很多第一次租棚的人會低估拍攝所需的時間。建議將租借時間分為幾個部分來規劃：佈燈與測光（約佔總時間的30%）、正式拍攝（50%）、收燈與整理（20%）。如果你預計拍攝2小時，建議至少租借3小時的場地。</p>
+
+<h2>器材準備清單</h2>
+<ul>
+<li><strong>相機與鏡頭：</strong>確認電池充飽、記憶卡清空並帶備用。</li>
+<li><strong>引閃器：</strong>如果使用棚燈，記得帶上自己的引閃器（Trigger）。</li>
+<li><strong>筆電與傳輸線：</strong>現場確認照片用。</li>
+<li><strong>道具與服裝：</strong>根據拍攝主題準備所有需要的道具、服裝、飾品。</li>
+</ul>
+
+<div class="tip-box"><div class="tip-box-title">省錢小撇步</div><p>許多攝影棚在非熱門時段（如平日上午）會有優惠價格。如果你的時間有彈性，不妨選擇這些時段租借，能省下不少費用。</p></div>
+
+<h2>燈光設定的基本流程</h2>
+<p>進入攝影棚後，建議按照以下步驟來設定燈光：確定背景 → 主光定位 → 補光調整 → 背景光（選用） → 測光確認。</p>
+
+<h2>結語</h2>
+<p>租借攝影棚看似複雜，但只要做好事前規劃，實際上是一個非常愉快的體驗。專業的場地和設備能讓你的作品質感大幅提升，也能讓你專注在創作上，不用擔心天氣、光線等不可控的因素。「請進攝影棚」提供完整的設備與舒適的環境，無論你是攝影新手還是經驗豐富的專業攝影師，我們都歡迎你來體驗專業攝影棚的魅力。有任何問題，歡迎隨時聯絡我們！</p>`
+  };
+
+  const posts = [
+    { slug: 'indoor-natural-lighting-tips', title: '如何在室內拍出自然光感？攝影師的打光秘訣', date: '2024.12.20', category: 'tips', categoryLabel: '攝影技巧', readingTime: '6 分鐘', image: '/blog-camera-settings.jpg', description: '不用昂貴器材，也能在室內創造自然光感。掌握這幾個打光技巧，讓你的室內照片也能充滿溫暖柔和的氛圍。', tags: ['室內攝影','自然光','打光技巧','攝影教學'], author: { name: '林小雅', role: '首席攝影師', bio: '擁有十年以上人像攝影經驗，專精自然光與棚燈的混合運用。相信每個人都有獨特的美，攝影師的任務就是找到它。' } },
+    { slug: 'posing-tips-for-photoshoot', title: '拍照前必看：5個讓你更上鏡的姿勢技巧', date: '2024.12.15', category: 'guide', categoryLabel: '拍攝指南', readingTime: '5 分鐘', image: '/blog-posing-tips.jpg', description: '面對鏡頭總是手腳不協調？這五個專業攝影師最常用的姿勢引導技巧，讓你輕鬆展現最自然美麗的一面。', tags: ['姿勢引導','拍照技巧','個人寫真','上鏡秘訣'], author: { name: '林小雅', role: '首席攝影師', bio: '擁有十年以上人像攝影經驗，擅長讓害羞的客人在鏡頭前展現自信。' } },
+    { slug: 'camera-settings-beginner-guide', title: '相機設定入門：光圈、快門、ISO怎麼調？', date: '2024.12.10', category: 'tutorial', categoryLabel: '攝影教學', readingTime: '8 分鐘', image: '/blog-camera-settings.jpg', description: '光圈控制景深、快門捕捉動態、ISO決定感光度。這篇文章用最簡單的方式，帶你搞懂相機三大設定。', tags: ['相機教學','光圈','快門','ISO','攝影入門'], author: { name: '陳大維', role: '攝影技術顧問', bio: '攝影器材玩家出身，熱衷於將複雜的技術知識轉化為易懂的教學內容。' } },
+    { slug: 'maternity-photoshoot-timing', title: '孕婦寫真的最佳拍攝時機：孕期哪個階段最適合？', date: '2024.12.01', category: 'guide', categoryLabel: '拍攝指南', readingTime: '5 分鐘', image: '/gallery-maternity.jpg', description: '懷孕32到36週是拍攝孕婦寫真的黃金時期。這時候肚子明顯但行動還算方便，能展現最美麗的孕婦曲線。', tags: ['孕婦寫真','孕期紀錄','拍攝指南','準媽媽'], author: { name: '林小雅', role: '首席攝影師', bio: '拍攝過上百組孕婦寫真，深知如何讓準媽媽在鏡頭前感到舒適與美麗。' } },
+    { slug: 'family-photo-guide', title: '全家福拍攝指南：讓每個人都自然上鏡的秘訣', date: '2024.11.25', category: 'guide', categoryLabel: '拍攝指南', readingTime: '6 分鐘', image: '/gallery-family.jpg', description: '全家福最難的不是技術，而是讓全家人同時自然放鬆。從互動引導到抓拍時機，教你如何記錄最真摯的家庭時光。', tags: ['全家福','家庭攝影','拍攝技巧','親子寫真'], author: { name: '林小雅', role: '首席攝影師', bio: '熱愛家庭攝影，相信每個家庭都有屬於自己的獨特互動模式。' } },
+    { slug: 'pet-photography-tips', title: '寵物攝影技巧：如何捕捉毛孩最可愛的瞬間', date: '2024.11.18', category: 'tips', categoryLabel: '攝影技巧', readingTime: '5 分鐘', image: '/gallery-pet.jpg', description: '寵物不聽話、到處亂跑？專業寵物攝影師分享捕捉毛孩最佳表情的秘訣，從誘導技巧到快門時機一次告訴你。', tags: ['寵物攝影','毛孩','拍攝技巧','寵物寫真'], author: { name: '王凱文', role: '寵物攝影師', bio: '動物行為學背景，擅長與各種寵物溝通，讓牠們在鏡頭前展現最可愛的一面。' } },
+    { slug: 'friend-portrait-outfit-guide', title: '閨蜜寫真穿搭指南：這樣搭配最上鏡', date: '2024.11.10', category: 'guide', categoryLabel: '拍攝指南', readingTime: '5 分鐘', image: '/hero-portrait.jpg', description: '閨蜜寫真的穿搭秘訣：色系的搭配、風格的統一與對比，讓你們的照片既有個人特色又充滿默契感。', tags: ['閨蜜寫真','穿搭指南','人像攝影','閨蜜照'], author: { name: '林小雅', role: '首席攝影師', bio: '擅長閨蜜與團體人像拍攝，認為最好的照片來自真實的友誼互動。' } },
+    { slug: 'couple-photography-poses', title: '情侶寫真的浪漫姿勢：自然互動最重要', date: '2024.11.03', category: 'guide', categoryLabel: '拍攝指南', readingTime: '6 分鐘', image: '/gallery-couple.jpg', description: '最動人的情侶照不是擺出來的，而是自然互動中抓拍的。這些引導技巧幫助情侶在鏡頭前展現最真實的愛意。', tags: ['情侶寫真','情侶照','拍攝姿勢','愛情攝影'], author: { name: '林小雅', role: '首席攝影師', bio: '相信真實的情感比完美的姿勢更動人，擅長捕捉情侶間最自然的互動瞬間。' } },
+    { slug: 'studio-rental-first-timer-guide', title: '攝影棚租借須知：第一次租棚要注意什麼？', date: '2024.10.28', category: 'behind', categoryLabel: '幕後花絮', readingTime: '7 分鐘', image: '/studio-interior.jpg', description: '第一次租借攝影棚？從場地選擇、器材準備到時間規劃，這篇完整指南讓你的租棚體驗順利又高效。', tags: ['攝影棚','租棚','攝影器材','新手須知'], author: { name: '陳大維', role: '攝影技術顧問', bio: '負責攝影棚的技術規劃與器材維護，熟悉各類拍攝需求與場地運用。' } },
+  ];
+
+  return posts.map((post, index) => {
+    const sameCategory = posts.filter(p => p.category === post.category && p.slug !== post.slug);
+    const otherPosts = posts.filter(p => p.category !== post.category && p.slug !== post.slug);
+    const relatedPosts = [...sameCategory, ...otherPosts].slice(0, 3);
+    const prevPost = index > 0 ? { slug: posts[index - 1].slug, title: posts[index - 1].title } : null;
+    const nextPost = index < posts.length - 1 ? { slug: posts[index + 1].slug, title: posts[index + 1].title } : null;
+    const content = articles[post.slug] || '<p>文章內容載入中...</p>';
+    return {
+      params: { slug: post.slug },
+      props: { post: { ...post, content }, prevPost, nextPost, relatedPosts },
+    };
+  });
+}
+
+const { post, prevPost, nextPost, relatedPosts } = Astro.props;
+const pageTitle = `${post.title} | 攝影日誌 | 請進攝影棚`;
+const pageDescription = post.description;
+const pageImage = post.image;
+
+// Generate structured data for this article
+const articleStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.title,
+  "description": post.description,
+  "image": `https://comeinphotostudio.com${post.image}`,
+  "datePublished": post.date.replace(/\./g, '-'),
+  "author": {
+    "@type": "Person",
+    "name": post.author.name,
+    "jobTitle": post.author.role
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "請進攝影棚",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://comeinphotostudio.com/hero-portrait.jpg"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://comeinphotostudio.com/blog/${post.slug}/`
+  }
+};
+---
+
+<Layout title={pageTitle} description={pageDescription} image={pageImage}>
+  <slot name="head">
+    <script type="application/ld+json" set:html={JSON.stringify(articleStructuredData)} />
+  </slot>
+
+  <Navbar />
+
+  <!-- Article Header Hero -->
+  <section class="relative w-full min-h-[70vh] flex items-end overflow-hidden">
+    <img
+      src={post.image}
+      alt={post.title}
+      class="absolute inset-0 w-full h-full object-cover object-center img-blur-load"
+    />
+    <div class="absolute inset-0" style="background: linear-gradient(to top, #0A0A0A 0%, rgba(10,10,10,0.5) 60%, rgba(10,10,10,0.3) 100%);"></div>
+    <div class="relative z-10 w-full max-w-[900px] mx-auto pb-16 md:pb-20 px-6 md:px-0">
+      <a href="/blog/" class="inline-block font-sans-tc text-[13px] text-[#A09A94] hover:text-[#D4A574] transition-colors duration-300 mb-8 reveal">
+        &larr; 返回日誌
+      </a>
+      <p class="font-sans-tc text-[11px] tracking-[0.15em] text-[#D4A574] mb-3 reveal reveal-delay-1">
+        {post.categoryLabel}
+      </p>
+      <h1 class="font-serif-tc text-[28px] md:text-[48px] text-[#F5F0EB] font-normal leading-[1.2] mb-4 text-reveal" style="letter-spacing: 0.01em;">
+        {post.title}
+      </h1>
+      <div class="w-[60px] h-px bg-[#D4A574] mb-4 gold-line"></div>
+      <p class="font-sans-tc text-[13px] text-[#6B6560] reveal reveal-delay-2">
+        {post.date} &middot; {post.readingTime}閱讀
+      </p>
+    </div>
+  </section>
+
+  <!-- Article Body -->
+  <article class="bg-[#0A0A0A] py-16 md:py-20 px-6">
+    <div class="max-w-[720px] mx-auto article-body">
+      <Fragment set:html={post.content} />
+    </div>
+  </article>
+
+  <!-- Article Footer -->
+  <section class="bg-[#0A0A0A] pb-16 md:pb-20 px-6">
+    <div class="max-w-[720px] mx-auto border-t border-[rgba(245,240,235,0.06)] pt-10">
+      <!-- Tags -->
+      <div class="mb-8 reveal">
+        <span class="font-sans-tc text-[13px] text-[#6B6560] mr-2">標籤：</span>
+        <div class="inline-flex flex-wrap gap-2 mt-2">
+          {post.tags.map(tag => (
+            <span class="font-sans-tc text-xs text-[#A09A94] border border-[rgba(245,240,235,0.1)] px-3 py-1 hover:border-[#D4A574] hover:text-[#D4A574] transition-colors duration-300 cursor-default">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Author Box -->
+      <div class="bg-[#141414] p-8 mb-12 reveal">
+        <div class="flex items-start gap-5">
+          <div class="w-16 h-16 rounded-full bg-[#1A1A1A] flex items-center justify-center flex-shrink-0">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D4A574" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-serif-tc text-base text-[#F5F0EB] mb-1">{post.author.name}</p>
+            <p class="font-sans-tc text-[13px] text-[#6B6560] mb-3">{post.author.role}</p>
+            <p class="font-sans-tc text-sm text-[#A09A94] leading-relaxed">{post.author.bio}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prev / Next Navigation -->
+      <div class="flex items-stretch justify-between gap-4 border-t border-[rgba(245,240,235,0.06)] pt-8 reveal">
+        {prevPost ? (
+          <a href={`/blog/${prevPost.slug}/`} class="flex-1 group text-left">
+            <span class="block font-sans-tc text-xs text-[#6B6560] mb-2">&larr; 上一篇</span>
+            <span class="font-serif-tc text-sm text-[#A09A94] group-hover:text-[#D4A574] transition-colors duration-300 line-clamp-2">
+              {prevPost.title}
+            </span>
+          </a>
+        ) : <div class="flex-1"></div>}
+        {nextPost ? (
+          <a href={`/blog/${nextPost.slug}/`} class="flex-1 group text-right">
+            <span class="block font-sans-tc text-xs text-[#6B6560] mb-2">下一篇 &rarr;</span>
+            <span class="font-serif-tc text-sm text-[#A09A94] group-hover:text-[#D4A574] transition-colors duration-300 line-clamp-2">
+              {nextPost.title}
+            </span>
+          </a>
+        ) : <div class="flex-1"></div>}
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Articles -->
+  <section class="bg-[#141414] py-16 md:py-24 px-6 lg:px-20">
+    <div class="max-w-[1200px] mx-auto">
+      <h2 class="font-serif-tc text-[28px] text-[#F5F0EB] font-normal mb-4 reveal">繼續閱讀</h2>
+      <div class="w-10 h-px bg-[#D4A574] mb-12 reveal"></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {relatedPosts.map((rp, i) => (
+          <a href={`/blog/${rp.slug}/`} class="blog-card group block reveal" style={`transition-delay: ${i * 0.1}s`}>
+            <div class="overflow-hidden">
+              <img src={rp.image} alt={rp.title} class="w-full aspect-[3/2] object-cover img-blur-load transition-transform duration-700 group-hover:scale-[1.03]" />
+            </div>
+            <div class="p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="font-sans-tc text-xs text-[#6B6560]">{rp.date}</span>
+                <span class="w-1 h-1 rounded-full bg-[#D4A574]"></span>
+                <span class="font-sans-tc text-xs text-[#D4A574]">{rp.categoryLabel}</span>
+              </div>
+              <h3 class="font-serif-tc text-lg text-[#F5F0EB] font-normal leading-snug group-hover:text-[#D4A574] transition-colors duration-300 line-clamp-2">
+                {rp.title}
+              </h3>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <style>
+    .article-body :global(.lead) {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 300;
+      color: #A09A94;
+      line-height: 1.7;
+      margin-bottom: 40px;
+      letter-spacing: 0.01em;
+    }
+    .article-body :global(h2) {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: #F5F0EB;
+      line-height: 1.3;
+      margin-top: 64px;
+      margin-bottom: 24px;
+      border-left: 2px solid #D4A574;
+      padding-left: 16px;
+      letter-spacing: 0.01em;
+    }
+    .article-body :global(h3) {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 24px;
+      font-weight: 400;
+      color: #F5F0EB;
+      line-height: 1.4;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      letter-spacing: 0.01em;
+    }
+    .article-body :global(p) {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 17px;
+      font-weight: 300;
+      color: #C8C3BE;
+      line-height: 1.9;
+      margin-bottom: 24px;
+    }
+    .article-body :global(blockquote) {
+      position: relative;
+      border-left: 2px solid #D4A574;
+      padding-left: 24px;
+      margin: 40px 0;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: #D4A574;
+      line-height: 1.6;
+    }
+    .article-body :global(blockquote cite) {
+      display: block;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 13px;
+      color: #6B6560;
+      margin-top: 12px;
+      font-style: normal;
+    }
+    .article-body :global(ul) {
+      margin: 24px 0;
+      padding-left: 24px;
+      list-style: none;
+    }
+    .article-body :global(ul li) {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+      color: #C8C3BE;
+      line-height: 1.8;
+      margin-bottom: 12px;
+      position: relative;
+      padding-left: 20px;
+    }
+    .article-body :global(ul li::before) {
+      content: '\2022';
+      position: absolute;
+      left: 0;
+      color: #D4A574;
+    }
+    .article-body :global(ol) {
+      margin: 24px 0;
+      padding-left: 24px;
+    }
+    .article-body :global(ol li) {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+      color: #C8C3BE;
+      line-height: 1.8;
+      margin-bottom: 12px;
+      padding-left: 8px;
+    }
+    .article-body :global(ol li::marker) {
+      font-family: 'Playfair Display', serif;
+      color: #D4A574;
+    }
+    .article-body :global(a) {
+      color: #D4A574;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    .article-body :global(a:hover) {
+      border-bottom-color: #D4A574;
+    }
+    .article-body :global(hr) {
+      border: none;
+      border-top: 1px solid rgba(245,240,235,0.06);
+      margin: 64px 0;
+    }
+    .article-body :global(strong) {
+      font-weight: 400;
+      color: #F5F0EB;
+    }
+    .article-body :global(.tip-box) {
+      background: #141414;
+      border-left: 2px solid #D4A574;
+      padding: 24px 28px;
+      margin: 32px 0;
+    }
+    .article-body :global(.tip-box-title) {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #D4A574;
+      margin-bottom: 12px;
+      letter-spacing: 0.05em;
+    }
+    .article-body :global(.tip-box p) {
+      margin-bottom: 0;
+      font-size: 15px;
+    }
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    @media (max-width: 768px) {
+      .article-body :global(h2) { font-size: 24px; margin-top: 48px; }
+      .article-body :global(h3) { font-size: 20px; }
+      .article-body :global(.lead) { font-size: 18px; }
+    }
+  </style>
+</Layout>

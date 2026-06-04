@@ -1,0 +1,284 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const pageTitle = '攝影日誌 | 請進攝影棚';
+const pageDescription = '攝影技巧、拍攝心得與工作室日常。從攝影入門到專業秘訣，讓我們帶你探索光影的世界。';
+
+// Categories for filter tabs
+const categories = [
+  { id: 'all', label: '全部' },
+  { id: 'tips', label: '攝影技巧' },
+  { id: 'guide', label: '拍攝指南' },
+  { id: 'tutorial', label: '攝影教學' },
+  { id: 'editing', label: '後期修圖' },
+  { id: 'behind', label: '幕後花絮' },
+];
+
+// All blog posts
+const posts = [
+  {
+    slug: 'indoor-natural-lighting-tips',
+    title: '如何在室內拍出自然光感？攝影師的打光秘訣',
+    date: '2024.12.20',
+    category: 'tips',
+    categoryLabel: '攝影技巧',
+    excerpt: '不用昂貴器材，也能在室內創造自然光感。掌握這幾個打光技巧，讓你的室內照片也能充滿溫暖柔和的氛圍...',
+    image: '/blog-camera-settings.jpg',
+  },
+  {
+    slug: 'posing-tips-for-photoshoot',
+    title: '拍照前必看：5個讓你更上鏡的姿勢技巧',
+    date: '2024.12.15',
+    category: 'guide',
+    categoryLabel: '拍攝指南',
+    excerpt: '面對鏡頭總是手腳不協調？這五個專業攝影師最常用的姿勢引導技巧，讓你輕鬆展現最自然美麗的一面...',
+    image: '/blog-posing-tips.jpg',
+  },
+  {
+    slug: 'camera-settings-beginner-guide',
+    title: '相機設定入門：光圈、快門、ISO怎麼調？',
+    date: '2024.12.10',
+    category: 'tutorial',
+    categoryLabel: '攝影教學',
+    excerpt: '光圈控制景深、快門捕捉動態、ISO決定感光度。這篇文章用最簡單的方式，帶你搞懂相機三大設定...',
+    image: '/blog-camera-settings.jpg',
+  },
+  {
+    slug: 'maternity-photoshoot-timing',
+    title: '孕婦寫真的最佳拍攝時機：孕期哪個階段最適合？',
+    date: '2024.12.01',
+    category: 'guide',
+    categoryLabel: '拍攝指南',
+    excerpt: '懷孕32到36週是拍攝孕婦寫真的黃金時期。這時候肚子明顯但行動還算方便，能展現最美麗的孕婦曲線...',
+    image: '/gallery-maternity.jpg',
+  },
+  {
+    slug: 'family-photo-guide',
+    title: '全家福拍攝指南：讓每個人都自然上鏡的秘訣',
+    date: '2024.11.25',
+    category: 'guide',
+    categoryLabel: '拍攝指南',
+    excerpt: '全家福最難的不是技術，而是讓全家人同時自然放鬆。從互動引導到抓拍時機，教你如何記錄最真摯的家庭時光...',
+    image: '/gallery-family.jpg',
+  },
+  {
+    slug: 'pet-photography-tips',
+    title: '寵物攝影技巧：如何捕捉毛孩最可愛的瞬間',
+    date: '2024.11.18',
+    category: 'tips',
+    categoryLabel: '攝影技巧',
+    excerpt: '寵物不聽話、到處亂跑？專業寵物攝影師分享捕捉毛孩最佳表情的秘訣，從誘導技巧到快門時機一次告訴你...',
+    image: '/gallery-pet.jpg',
+  },
+  {
+    slug: 'friend-portrait-outfit-guide',
+    title: '閨蜜寫真穿搭指南：這樣搭配最上鏡',
+    date: '2024.11.10',
+    category: 'guide',
+    categoryLabel: '拍攝指南',
+    excerpt: '閨蜜寫真的穿搭秘訣：色系的搭配、風格的統一與對比，讓你們的照片既有個人特色又充滿默契感...',
+    image: '/hero-portrait.jpg',
+  },
+  {
+    slug: 'couple-photography-poses',
+    title: '情侶寫真的浪漫姿勢：自然互動最重要',
+    date: '2024.11.03',
+    category: 'guide',
+    categoryLabel: '拍攝指南',
+    excerpt: '最動人的情侶照不是擺出來的，而是自然互動中抓拍的。這些引導技巧幫助情侶在鏡頭前展現最真實的愛意...',
+    image: '/gallery-couple.jpg',
+  },
+  {
+    slug: 'studio-rental-first-timer-guide',
+    title: '攝影棚租借須知：第一次租棚要注意什麼？',
+    date: '2024.10.28',
+    category: 'behind',
+    categoryLabel: '幕後花絮',
+    excerpt: '第一次租借攝影棚？從場地選擇、器材準備到時間規劃，這篇完整指南讓你的租棚體驗順利又高效...',
+    image: '/studio-interior.jpg',
+  },
+];
+
+// Featured article (first post)
+const featured = posts[0];
+// Remaining posts for the grid
+const gridPosts = posts.slice(1);
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <Navbar />
+
+  <!-- Section 1: Page Header Hero -->
+  <section class="relative w-full min-h-[60vh] flex items-end overflow-hidden">
+    <img
+      src="/blog-camera-settings.jpg"
+      alt="攝影日誌"
+      class="absolute inset-0 w-full h-full object-cover object-center img-blur-load"
+    />
+    <div
+      class="absolute inset-0"
+      style="background: linear-gradient(to top, #0A0A0A 0%, rgba(10,10,10,0.6) 50%, rgba(10,10,10,0.3) 100%);"
+    >
+    </div>
+    <div class="relative z-10 w-full max-w-[1440px] mx-auto pb-20 px-6 lg:px-20 md:pb-20 px-6 pb-16">
+      <p class="font-sans-tc text-[11px] tracking-[0.15em] text-[#D4A574] mb-3 reveal">JOURNAL</p>
+      <h1 class="font-serif-tc text-[32px] md:text-[56px] text-[#F5F0EB] font-normal leading-tight mb-4 text-reveal" style="letter-spacing: 0.01em;">
+        攝影日誌
+      </h1>
+      <p class="font-sans-tc text-base text-[#A09A94] reveal reveal-delay-2">
+        攝影技巧、拍攝心得與工作室日常
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 2: Featured Article -->
+  <section class="bg-[#0A0A0A] pt-24 md:pt-[100px] pb-0 px-6 lg:px-20">
+    <div class="max-w-[1200px] mx-auto">
+      <a href={`/blog/${featured.slug}/`} class="block blog-card group relative">
+        <!-- FEATURED badge -->
+        <span class="absolute top-4 left-4 z-10 font-sans-tc text-[10px] text-[#0A0A0A] bg-[#D4A574] px-2.5 py-1">
+          FEATURED
+        </span>
+        <div class="grid grid-cols-1 md:grid-cols-[55%_45%]">
+          <!-- Left: Image -->
+          <div class="overflow-hidden">
+            <img
+              src={featured.image}
+              alt={featured.title}
+              class="w-full aspect-[16/10] object-cover img-blur-load transition-transform duration-1000 group-hover:scale-[1.03]"
+              style="transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);"
+            />
+          </div>
+          <!-- Right: Content -->
+          <div class="p-8 md:p-12 flex flex-col justify-center">
+            <p class="font-sans-tc text-[11px] tracking-[0.15em] text-[#D4A574] mb-4 reveal">
+              {featured.categoryLabel}
+            </p>
+            <h2 class="font-serif-tc text-2xl md:text-[28px] text-[#F5F0EB] font-normal leading-snug mb-4 gold-line text-reveal">
+              {featured.title}
+            </h2>
+            <p class="font-sans-tc text-[15px] text-[#A09A94] leading-relaxed mb-6 reveal reveal-delay-2">
+              {featured.excerpt}
+            </p>
+            <div class="flex items-center justify-between reveal reveal-delay-3">
+              <span class="font-sans-tc text-xs text-[#6B6560]">{featured.date}</span>
+              <span class="font-sans-tc text-sm text-[#D4A574] link-animated">閱讀全文 &rarr;</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Section 3: Article Grid -->
+  <section class="bg-[#0A0A0A] pt-20 md:pt-20 pb-24 md:pb-[150px] px-6 lg:px-20">
+    <div class="max-w-[1200px] mx-auto">
+      <!-- Section header -->
+      <div class="mb-12 reveal">
+        <h2 class="font-serif-tc text-[28px] text-[#F5F0EB] font-normal mb-4">全部文章</h2>
+        <div class="gold-line" style="--gold-line-width: 40px;"></div>
+      </div>
+
+      <!-- Filter tabs -->
+      <div class="flex flex-wrap gap-1 mb-12 reveal" id="filter-tabs">
+        {categories.map((cat, i) => (
+          <button
+            data-category={cat.id}
+            class:list={[
+              'filter-tab px-5 py-2.5 font-sans-tc text-sm transition-all duration-300 border',
+              i === 0
+                ? 'border-[#D4A574] text-[#D4A574]'
+                : 'border-[rgba(245,240,235,0.1)] text-[#A09A94] hover:border-[rgba(245,240,235,0.3)] hover:text-[#F5F0EB]'
+            ]}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </div>
+
+      <!-- Blog Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="blog-grid">
+        {gridPosts.map((post, i) => (
+          <a
+            href={`/blog/${post.slug}/`}
+            class="blog-card group block"
+            data-category={post.category}
+            style={`transition-delay: ${i * 0.08}s`}
+          >
+            <!-- Card Image -->
+            <div class="overflow-hidden">
+              <img
+                src={post.image}
+                alt={post.title}
+                class="w-full aspect-[3/2] object-cover img-blur-load transition-transform duration-800 group-hover:scale-[1.03]"
+                style="transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);"
+              />
+            </div>
+            <!-- Card Content -->
+            <div class="p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="font-sans-tc text-xs text-[#6B6560]">{post.date}</span>
+                <span class="w-1 h-1 rounded-full bg-[#D4A574]"></span>
+                <span class="font-sans-tc text-xs text-[#D4A574]">{post.categoryLabel}</span>
+              </div>
+              <h3 class="font-serif-tc text-xl text-[#F5F0EB] font-normal leading-snug mb-3 group-hover:text-[#D4A574] transition-colors duration-300">
+                {post.title}
+              </h3>
+              <p class="font-sans-tc text-sm text-[#A09A94] leading-relaxed line-clamp-2">
+                {post.excerpt}
+              </p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <!-- Filter Tabs JavaScript -->
+  <script>
+    const tabs = document.querySelectorAll('.filter-tab');
+    const cards = document.querySelectorAll('#blog-grid > a[data-category]');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const category = tab.dataset.category;
+
+        // Update active tab styling
+        tabs.forEach(t => {
+          t.classList.remove('border-[#D4A574]', 'text-[#D4A574]');
+          t.classList.add('border-[rgba(245,240,235,0.1)]', 'text-[#A09A94]');
+        });
+        tab.classList.remove('border-[rgba(245,240,235,0.1)]', 'text-[#A09A94]');
+        tab.classList.add('border-[#D4A574]', 'text-[#D4A574]');
+
+        // Filter cards
+        cards.forEach(card => {
+          const cardCat = card.dataset.category;
+          if (category === 'all' || cardCat === category) {
+            card.style.display = 'block';
+            // Re-trigger reveal animation
+            card.classList.remove('revealed');
+            requestAnimationFrame(() => {
+              card.classList.add('revealed');
+            });
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+  <style>
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  </style>
+</Layout>
